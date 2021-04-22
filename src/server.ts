@@ -12,6 +12,8 @@ app.use(compression())
     .use(express.static(path.resolve(__dirname, '../dist')))
     .use(express.static(path.resolve(__dirname, '../static')));
 
+app.get('/ping', (req, res) => res.send('pong'));
+
 app.get('/*', serverRenderMiddleware);
 
 export { app };
