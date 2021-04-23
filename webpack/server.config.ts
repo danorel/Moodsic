@@ -11,8 +11,10 @@ import jsLoader from './loaders/js';
 const config: Configuration = {
     name: 'server',
     target: 'node',
+    devtool: 'source-map',
     node: { __dirname: false },
-    entry: path.join(SRC_DIR, 'server'),
+    entry: path.join(SRC_DIR, 'server', 'index.ts'),
+    externals: [nodeExternals({ allowlist: [/\.(?!(?:tsx?|json)$).{1,5}$/i] })],
     module: {
         rules: [fileLoader.server, cssLoader.server, jsLoader.server],
     },
@@ -27,15 +29,9 @@ const config: Configuration = {
         extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
         plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
     },
-
-    devtool: 'source-map',
-
     performance: {
         hints: IS_DEV ? false : 'warning',
     },
-
-    externals: [nodeExternals({ allowlist: [/\.(?!(?:tsx?|json)$).{1,5}$/i] })],
-
     optimization: { nodeEnv: false },
 };
 

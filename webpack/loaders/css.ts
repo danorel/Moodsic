@@ -9,7 +9,7 @@ const cssnano = require('cssnano');
 const { IS_DEV } = require('../env');
 
 const resolverOptions = {
-    alias: { styles: path.resolve('src/styles') },
+    alias: { styles: path.resolve('src/client/styles') },
     mergeExtensions: 'extend',
 };
 
