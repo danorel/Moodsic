@@ -7,8 +7,15 @@ import './Header.css';
 
 enum PageName {
     Home = 'Home',
+    Space = 'Home',
     SignIn = 'Sign In',
     SignUp = 'Sign Up'
+}
+
+enum PagePath {
+    Home = 'Home',
+    SignIn = 'Authentication',
+    SignUp = 'Authentication'
 }
 
 const preloadPage = (pageName: string) =>
@@ -22,28 +29,35 @@ const menu = [
         exact: true,
         item: 'nav-item-logo',
         styles: 'grid-item header__grid-item-logo',
+        name: PageName.Home,
+        path: PagePath.Home,
         child: <div className={b('logo')} />
     },
     {
         to: '/',
         exact: true,
-        styles: 'grid-item header__grid-item-space ',
+        styles: 'grid-item header__grid-item-space',
+        name: PageName.Space,
         child: <div/>,
     },
     {
-        to: '/authentication?switching=true',
+        to: '/authentication',
+        query: 'switching=true',
         exact: true,
         item: 'nav-item-sign-in',
         styles: 'grid-item header__grid-item-sign-in',
-        page: PageName.SignIn,
+        name: PageName.SignIn,
+        path: PagePath.SignIn,
         child: <div className={b('button-sign-in')}>{PageName.SignIn}</div>,
     },
     {
-        to: '/authentication?switching=false',
+        to: '/authentication',
+        query: 'switching=false',
         exact: true,
         item: 'nav-item-sign-up',
         styles: 'grid-item header__grid-item-sign-up',
-        page: PageName.SignUp,
+        name: PageName.SignUp,
+        path: PagePath.SignUp,
         child: <div className={b('button-sign-up')}>{PageName.SignUp}</div>,
     },
 ];
@@ -52,14 +66,17 @@ export function Header() {
     return (
         <div className={b('')}>
             <nav className={b('gridbox')}>
-                {menu.map(data => (
-                    <div className={b(data.styles)}>
+                {menu.map((data, id: number) => (
+                    <div key={id} className={b(data.styles)}>
                         <NavLink
-                            key={data.to}
+                            key={id}
                             exact={data.exact}
-                            to={data.to}
-                            className={'item' in data ? b(data.item) : ''}
-                            onMouseMove={() => preloadPage(data.page).preload()}
+                            to={data.query
+                                ? `${data.to}?${data.query}`
+                                : data.to}
+                            activeClassName={null}
+                            className={'item' in data ? b(data.item) : null}
+                            onMouseMove={() => preloadPage(data.path).preload()}
                         >
                             {data.child}
                         </NavLink>

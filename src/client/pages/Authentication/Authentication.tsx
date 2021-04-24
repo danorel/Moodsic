@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as bem from 'b_';
-import { useParams, useHistory } from "react-router-dom";
-
+import { useHistory } from "react-router-dom";
+import queryString from "query-string";
 
 import { Grid } from '@material-ui/core';
 
@@ -18,8 +18,8 @@ const b = bem.with('authentication-page');
 
 
 export default function Authentication() {
-    const { switching: query } = useParams<{ switching?: string }>();
     const history = useHistory();
+    const params = queryString.parse(history.location.search);
 
     const {
         email,
@@ -33,9 +33,9 @@ export default function Authentication() {
     } = useAuthentication();
 
     React.useEffect(() => {
-        console.log(query);
-        if (query)
-            onChangeSwitching(query.toLowerCase() === 'true');
+        if (params.switching)
+            onChangeSwitching(params.switching === String(true));
+
         fetchAuthentication();
     }, []);
 

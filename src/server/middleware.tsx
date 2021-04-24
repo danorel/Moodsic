@@ -14,8 +14,10 @@ import { configureStore } from '../common/store/rootStore';
 import { getInitialState } from '../common/store/getInitialState';
 import rootSaga from '../common/store/rootSaga';
 import routes from '../common/routes';
+import { MusicloverId } from 'RootModels';
 
 export default (req: Request, res: Response) => {
+    const query = req.query;
     const location = req.url;
     const context: StaticRouterContext = {};
     const { store } = configureStore(getInitialState(location), location);
@@ -64,7 +66,8 @@ export default (req: Request, res: Response) => {
      */
     routes.some(route => {
         const { fetchData: fetchMethod } = route;
-        const match = matchPath<{ slug: string }>(
+
+        const match = matchPath<{ musicloverId: MusicloverId }>(
             url.parse(location).pathname,
             route
         );
