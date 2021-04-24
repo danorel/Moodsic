@@ -4,8 +4,8 @@ import { State } from 'RootState';
 import { Playlist } from 'RootModels';
 import { PageMeta, PageContainer, Page } from 'client/components';
 import { PlaylistStubComponent } from './Playlist.stub';
-import { fetchPlaylistRequest } from '../../../common/store/ducks/playlist/actions';
-import { getPlaylist, isLoading } from '../../../common/store/ducks/playlist/selectors';
+import { fetchPlaylistRequest } from 'common/store/ducks/playlist/actions';
+import { getPlaylist, isLoading } from 'common/store/ducks/playlist/selectors';
 
 type Props = {
     data: Playlist;

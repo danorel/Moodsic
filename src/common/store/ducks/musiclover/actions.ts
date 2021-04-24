@@ -2,7 +2,7 @@ import { Musiclover, MusicloverId } from 'RootModels';
 import * as types from './types';
 
 // action creators
-export function fetchMusiclover(id: MusicloverId): types.FetchMusicloverRequestAction {
+export function fetchMusicloverRequest(id: MusicloverId): types.FetchMusicloverRequestAction {
     return { type: types.FETCH_MUSICLOVER_REQUEST, payload: id };
 }
 

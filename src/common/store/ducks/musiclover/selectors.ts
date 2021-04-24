@@ -1,9 +1,9 @@
 import { State } from 'RootState';
 
-export function getMusiclover(state: State) {
+export function selectMusiclover(state: State) {
     return state.musiclover.data;
 }
 
-export function isLoading(state: State) {
+export function selectLoading(state: State) {
     return state.musiclover.isLoading;
 }

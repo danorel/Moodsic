@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Rect, Page, PageContainer } from 'client/components';
 
-export function SneakersStub() {
+export function AuthenticationStub() {
     return (
         <Page>
             <PageContainer mix="sneakers-page-stub">

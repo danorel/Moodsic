@@ -1,17 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import * as bem from 'b_';
-import { State, Sneakers as SneakersType } from 'common/types';
-import { PageMeta, SneakersList, Page, PageContainer } from 'client/components';
+import { State } from 'RootState';
+import { PageMeta, Page, PageContainer } from 'client/components';
 import { fetchHomepageRequest } from 'common/store/ducks/homepage/actions';
 import { getHomepage, isLoading } from 'common/store/ducks/homepage/selectors';
 import { HomeStub } from './Home.stub';
 
 type Props = {
-    data: {
-        popular: SneakersType[];
-        newest: SneakersType[];
-    };
+    data: {};
     fetchHomepage: () => void;
     isLoading: boolean;
 };
@@ -19,28 +16,19 @@ type Props = {
 const b = bem.with('page');
 
 function Home(props: Props) {
-    const { isLoading, data, fetchHomepage } = props;
+    const { isLoading } = props;
 
-    React.useEffect(() => {
-        if (!data.popular.length) {
-            fetchHomepage();
-        }
-    }, []);
-
-    if (isLoading) {
+    if (isLoading)
         return <HomeStub />;
-    }
 
     return (
         <Page>
             <PageMeta title="Home page" description="Buy awesome snickers" />
             <PageContainer>
                 <h2>Popular</h2>
-                <SneakersList items={data.popular} />
             </PageContainer>
             <PageContainer btn={{ to: '/musiclover', text: 'See more' }}>
                 <h2>Newest</h2>
-                <SneakersList items={data.newest} />
             </PageContainer>
         </Page>
     );
