@@ -6,7 +6,7 @@ import { loadableReady } from '@loadable/component';
 import 'babel-polyfill';
 
 import { App } from 'client/components';
-import { State } from 'common/types';
+import { State } from 'RootState';
 import { configureStore } from '../common/store/rootStore';
 
 const { store, history } = configureStore(window.__INITIAL_STATE__);

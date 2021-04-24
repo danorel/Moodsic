@@ -9,13 +9,11 @@ import './App.css';
 function App() {
     return (
         <div className="app">
-            <Header />
             <Switch>
                 {routes.map(({ fetchData, ...routeProps }) => (
                     <Route key={routeProps.path} {...routeProps} />
                 ))}
             </Switch>
-            <Footer />
         </div>
     );
 }

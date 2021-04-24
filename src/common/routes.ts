@@ -4,11 +4,12 @@ import { fetchHomepageRequest } from 'common/store/ducks/homepage/actions';
 import { fetchPlaylistRequest } from 'common/store/ducks/playlist/actions';
 import { RouterFetchDataArgs } from 'RootRouter';
 
-const HomePage = loadable(() => import('../client/pages/Home/Home'));
-const NotFoundPage = loadable(() => import('../client/pages/404/404'));
-const PlaylistPage = loadable(() => import('../client/pages/Playlist/Playlist'));
-const PlaylistsPage = loadable(() => import('../client/pages/Playlists/Playlist'));
-const PreferencesPage = loadable(() => import('../client/pages/Preferences/Preferences'));
+const HomePage = loadable(() => import('client/pages/Home/Home'));
+const NotFoundPage = loadable(() => import('client/pages/404/404'));
+const PlaylistPage = loadable(() => import('client/pages/Playlist/Playlist'));
+const PlaylistsPage = loadable(() => import('client/pages/Playlists/Playlist'));
+const PreferencesPage = loadable(() => import('client/pages/Preferences/Preferences'));
+const AuthenticationPage = loadable(() => import('client/pages/Authentication/Authentication'));
 
 /**
  * Routes are moved to a separate file,
@@ -21,6 +22,15 @@ export default [
         component: HomePage,
         exact: true,
         fetchData({ dispatch }: RouterFetchDataArgs) {
+            dispatch(fetchHomepageRequest());
+        },
+    },
+    {
+        path: '/authentication',
+        component: AuthenticationPage,
+        exact: true,
+        fetchData({ dispatch, match }: RouterFetchDataArgs) {
+            dispatch(fetchMusicloverRequest(match.params.musicloverId));
             dispatch(fetchHomepageRequest());
         },
     },

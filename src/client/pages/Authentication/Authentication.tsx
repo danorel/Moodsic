@@ -14,9 +14,8 @@ import './Authentication.css';
 
 const b = bem.with('authentication-page');
 
-type Props = {};
 
-const AuthenticationView: React.FC<Props> = () => {
+export default function Authentication() {
     const {
         match,
         data,
@@ -54,6 +53,4 @@ const AuthenticationView: React.FC<Props> = () => {
             </div>
         </React.Fragment>
     );
-};
-
-export default AuthenticationView;
+}
