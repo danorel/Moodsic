@@ -1,4 +1,4 @@
-import { State } from 'types';
+import { State } from 'RootState';
 
 export function getHomepage(state: State) {
     return state.homepage.data;

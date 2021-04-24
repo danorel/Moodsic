@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as bem from 'b_';
 import { State, Sneakers as SneakersType } from 'common/types';
 import { PageMeta, SneakersList, Page, PageContainer } from 'client/components';
-import { fetchHomepage } from 'common/store/ducks/homepage/actions';
+import { fetchHomepageRequest } from 'common/store/ducks/homepage/actions';
 import { getHomepage, isLoading } from 'common/store/ducks/homepage/selectors';
 import { HomeStub } from './Home.stub';
 
@@ -38,7 +38,7 @@ function Home(props: Props) {
                 <h2>Popular</h2>
                 <SneakersList items={data.popular} />
             </PageContainer>
-            <PageContainer btn={{ to: '/catalog', text: 'See more' }}>
+            <PageContainer btn={{ to: '/musiclover', text: 'See more' }}>
                 <h2>Newest</h2>
                 <SneakersList items={data.newest} />
             </PageContainer>
@@ -50,7 +50,7 @@ const mapStateToProps = (state: State) => ({
     data: getHomepage(state),
     isLoading: isLoading(state),
 });
-const mapDispatchToProps = { fetchHomepage };
+const mapDispatchToProps = { fetchHomepage: fetchHomepageRequest };
 
 export default connect(
     mapStateToProps,

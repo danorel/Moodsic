@@ -1,14 +1,14 @@
 import { RouterState } from 'connected-react-router';
-import { State } from 'common/types';
+import { State } from 'RootState';
 import { initialState as homepage } from './ducks/homepage/reducer';
-import { initialState as catalog } from './ducks/catalog/reducer';
-import { initialState as shoes } from './ducks/shoes/reducer';
+import { initialState as musiclover } from './ducks/musiclover/reducer';
+import { initialState as playlist } from './ducks/playlist/reducer';
 
 export const getInitialState = (pathname: string = '/'): State => {
     return {
         homepage,
-        catalog,
-        shoes,
+        musiclover,
+        playlist,
         router: {
             location: { pathname, search: '', hash: '', key: '' },
             action: 'POP',

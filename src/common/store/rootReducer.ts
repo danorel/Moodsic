@@ -2,15 +2,16 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import { History } from 'history';
 
+import { State } from 'RootState';
+
 import homepage from './ducks/homepage/reducer';
-import catalog from './ducks/catalog/reducer';
-import shoes from './ducks/shoes/reducer';
-import { State } from 'common/types';
+import playlist from './ducks/playlist/reducer';
+import musiclover from './ducks/musiclover/reducer';
 
 export default (history: History) =>
     combineReducers<State>({
         homepage,
-        catalog,
-        shoes,
+        playlist,
+        musiclover,
         router: connectRouter(history),
     });

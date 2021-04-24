@@ -1,15 +1,15 @@
-import { Sneakers, ReduxAction } from 'types';
+import { ReduxAction } from 'RootRedux';
 
 // types
-export const FETCH_HOMEPAGE = '@@homepage/FETCH_HOMEPAGE';
+export const FETCH_HOMEPAGE_REQUEST = '@@homepage/FETCH_HOMEPAGE_REQUEST';
 export const FETCH_HOMEPAGE_SUCCESS = '@@homepage/FETCH_HOMEPAGE_SUCCESS';
 export const FETCH_HOMEPAGE_FAILURE = '@@homepage/FETCH_HOMEPAGE_FAILURE';
 
 // action types
-export type FetchHomepageAction = ReduxAction<typeof FETCH_HOMEPAGE>;
+export type FetchHomepageAction = ReduxAction<typeof FETCH_HOMEPAGE_REQUEST>;
 export type FetchHomepageSuccessAction = ReduxAction<
     typeof FETCH_HOMEPAGE_SUCCESS,
-    { popular: Sneakers[]; newest: Sneakers[] }
+    {}
 >;
 export type FetchHomepageFailureAction = ReduxAction<
     typeof FETCH_HOMEPAGE_FAILURE,

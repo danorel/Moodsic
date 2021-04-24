@@ -2,7 +2,8 @@ import { createStore, compose, applyMiddleware, Store } from 'redux';
 import createSagaMiddleware, { END, SagaMiddleware } from 'redux-saga';
 import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory, createMemoryHistory } from 'history';
-import { AppStore, State } from 'common/types';
+import { State } from 'RootState';
+import { AppStore } from 'RootRedux';
 import createRootReducer from './rootReducer';
 import rootSaga from './rootSaga';
 

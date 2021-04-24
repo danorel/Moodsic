@@ -15,5 +15,5 @@ function* fetchHomepage() {
 }
 
 export function* homepageSaga() {
-    yield takeLatest(types.FETCH_HOMEPAGE, fetchHomepage);
+    yield takeLatest(types.FETCH_HOMEPAGE_REQUEST, fetchHomepage);
 }

@@ -1,4 +1,4 @@
-import { serializer as shoesSerializer } from '../shoes/service';
+import { serializer as shoesSerializer } from '../playlist/service';
 import { timeout } from '../timeoutHelper';
 
 // Emulate api request

@@ -1,11 +1,4 @@
-import { Dispatch } from 'react';
-import { match } from 'react-router';
-import { State, AppStore, ReduxAction } from './redux';
-import { Sneakers } from './models';
-
-export type RouterFetchDataArgs = {
-    dispatch: Dispatch<ReduxAction>;
-    match: match<{ slug: string }>;
-};
-
-export { Sneakers, State, AppStore, ReduxAction };
+/// <reference path="modules/redux.ts" />
+/// <reference path="modules/state.ts" />
+/// <reference path="modules/models.ts" />
+/// <reference path="modules/router.ts" />

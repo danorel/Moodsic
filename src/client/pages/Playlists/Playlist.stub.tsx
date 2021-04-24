@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Page, PageContainer, Rect, SneakersListStub } from 'client/components';
 
-export function CatalogStub() {
+export function PlaylistStubComponent() {
     return (
         <Page>
             <PageContainer>

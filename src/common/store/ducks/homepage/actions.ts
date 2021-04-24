@@ -1,15 +1,11 @@
-import { Sneakers } from 'types';
 import * as types from './types';
 
 // action creators
-export function fetchHomepage(): types.FetchHomepageAction {
-    return { type: types.FETCH_HOMEPAGE };
+export function fetchHomepageRequest(): types.FetchHomepageAction {
+    return { type: types.FETCH_HOMEPAGE_REQUEST };
 }
 
-export function fetchHomepageSuccess(data: {
-    popular: Sneakers[];
-    newest: Sneakers[];
-}): types.FetchHomepageSuccessAction {
+export function fetchHomepageSuccess(data: {}): types.FetchHomepageSuccessAction {
     return { type: types.FETCH_HOMEPAGE_SUCCESS, payload: data };
 }
 

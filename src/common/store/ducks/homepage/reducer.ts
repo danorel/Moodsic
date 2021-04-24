@@ -1,26 +1,20 @@
 import {
     HomepageActionTypes,
-    FETCH_HOMEPAGE,
+    FETCH_HOMEPAGE_REQUEST,
     FETCH_HOMEPAGE_FAILURE,
     FETCH_HOMEPAGE_SUCCESS,
 } from './types';
-import { Sneakers } from 'types';
+
 import produce, { Draft } from 'immer';
 
 export interface HomepageState {
-    readonly data: {
-        popular: Sneakers[];
-        newest: Sneakers[];
-    };
+    readonly data: {};
     readonly isLoading: boolean;
     readonly error?: string;
 }
 
 export const initialState: HomepageState = {
-    data: {
-        popular: [],
-        newest: [],
-    },
+    data: {},
     isLoading: false,
     error: undefined,
 };
@@ -31,7 +25,7 @@ export default produce(
         action: HomepageActionTypes
     ) => {
         switch (action.type) {
-            case FETCH_HOMEPAGE:
+            case FETCH_HOMEPAGE_REQUEST:
                 draft.isLoading = true;
                 draft.error = undefined;
                 return;

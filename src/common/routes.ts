@@ -1,14 +1,14 @@
 import loadable from '@loadable/component';
-import { fetchCatalog } from 'common/store/ducks/catalog/actions';
-import { fetchHomepage } from 'common/store/ducks/homepage/actions';
-import { fetchShoes } from 'common/store/ducks/shoes/actions';
-import { RouterFetchDataArgs } from 'common/types';
+import { fetchMusiclover } from 'common/store/ducks/musiclover/actions';
+import { fetchHomepageRequest } from 'common/store/ducks/homepage/actions';
+import { fetchPlaylistRequest } from 'common/store/ducks/playlist/actions';
+import { RouterFetchDataArgs } from 'RootRouter';
 
 const HomePage = loadable(() => import('../client/pages/Home/Home'));
-const CatalogPage = loadable(() => import('../client/pages/Catalog/Catalog'));
-const UpcomingPage = loadable(() => import('../client/pages/Upcoming/Upcoming'));
-const SneakersPage = loadable(() => import('../client/pages/Sneakers/Sneakers'));
 const NotFoundPage = loadable(() => import('../client/pages/404/404'));
+const PlaylistPage = loadable(() => import('../client/pages/Playlist/Sneakers'));
+const PlaylistsPage = loadable(() => import('../client/pages/Playlists/Playlist'));
+const PreferencesPage = loadable(() => import('../client/pages/Preferences/Preferences'));
 
 /**
  * Routes are moved to a separate file,
@@ -21,30 +21,35 @@ export default [
         component: HomePage,
         exact: true,
         fetchData({ dispatch }: RouterFetchDataArgs) {
-            dispatch(fetchHomepage());
+            dispatch(fetchHomepageRequest());
         },
     },
     {
-        path: '/catalog',
-        component: CatalogPage,
-        exact: true,
-        fetchData({ dispatch }: RouterFetchDataArgs) {
-            dispatch(fetchCatalog());
-        },
-    },
-    {
-        path: '/sneakers/:slug',
-        component: SneakersPage,
+        path: '/musiclover/:musicloverId/preferences',
+        component: PreferencesPage,
         exact: true,
         fetchData({ dispatch, match }: RouterFetchDataArgs) {
-            dispatch(fetchShoes(match.params.slug));
-            dispatch(fetchHomepage());
+            dispatch(fetchMusiclover(match.params.musicloverId));
+            dispatch(fetchHomepageRequest());
         },
     },
     {
-        path: '/upcoming',
-        component: UpcomingPage,
+        path: '/musiclover/:musicloverId/playlist/:playlistId',
+        component: PlaylistPage,
         exact: true,
+        fetchData({ dispatch, match }: RouterFetchDataArgs) {
+            dispatch(fetchMusiclover(match.params.musicloverId));
+            dispatch(fetchHomepageRequest());
+        },
+    },
+    {
+        path: '/musiclover/:musicloverId/my-playlists/',
+        component: PlaylistsPage,
+        exact: true,
+        fetchData({ dispatch, match }: RouterFetchDataArgs) {
+            dispatch(fetchMusiclover(match.params.musicloverId));
+            dispatch(fetchHomepageRequest());
+        },
     },
     {
         path: '*',

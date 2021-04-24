@@ -4,17 +4,17 @@ import * as actions from './actions';
 import * as types from './types';
 import * as service from './service';
 
-function* fetchShoes(action: types.FetchShoesAction) {
+function* fetchShoes(action: types.FetchPlaylistRequestAction) {
     try {
         const slug = action.payload;
         const data = yield call(service.fetchShoes, slug);
 
-        yield put(actions.fetchShoesSuccess(data));
+        yield put(actions.fetchPlaylistSuccess(data));
     } catch (error) {
-        yield put(actions.fetchShoesError(error.message));
+        yield put(actions.fetchPlaylistError(error.message));
     }
 }
 
-export function* shoesSaga() {
-    yield takeLatest(types.FETCH_SHOES, fetchShoes);
+export function* playlistSaga() {
+    yield takeLatest(types.FETCH_PLAYLIST_REQUEST, fetchShoes);
 }

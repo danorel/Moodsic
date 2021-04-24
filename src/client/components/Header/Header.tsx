@@ -13,7 +13,7 @@ enum PageName {
 
 const menu = [
     { to: '/', exact: true, page: PageName.Home },
-    { to: '/catalog', exact: true, page: PageName.Catalog },
+    { to: '/musiclover', exact: true, page: PageName.Catalog },
     { to: '/upcoming', exact: true, page: PageName.Upcoming },
 ];
 
