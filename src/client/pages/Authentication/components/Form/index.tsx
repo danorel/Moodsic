@@ -20,11 +20,16 @@ export function FormComponent({ value, switching, onSubmit, onChange }: FormView
     return (
         <React.Fragment>
             <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
-                <Grid item>
+                <Grid
+                    item
+                    xs={12} sm={12} md={12} lg={12} xl={12}
+                    className={b("grid-item")}>
                     <input className={b('input')} value={value} placeholder={'Pass e-mail...'} onChange={e => onChange(e.target.value)} />
                 </Grid>
-                <Grid item>
-                    <button className={b('button-sign-up')} onClick={onSubmit}>
+                <Grid item
+                      xs={12} sm={12} md={12} lg={12} xl={12}
+                      className={b("grid-item")}>
+                    <button className={b('button')} onClick={onSubmit}>
                         {switching ? "Let's go!" : 'Register me!'}
                     </button>
                 </Grid>

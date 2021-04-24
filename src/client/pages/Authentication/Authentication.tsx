@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as bem from 'b_';
-import { useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+
 
 import { Grid } from '@material-ui/core';
 
@@ -17,6 +18,7 @@ const b = bem.with('authentication-page');
 
 
 export default function Authentication() {
+    const { switching: query } = useParams<{ switching?: string }>();
     const history = useHistory();
 
     const {
@@ -31,6 +33,9 @@ export default function Authentication() {
     } = useAuthentication();
 
     React.useEffect(() => {
+        console.log(query);
+        if (query)
+            onChangeSwitching(query.toLowerCase() === 'true');
         fetchAuthentication();
     }, []);
 

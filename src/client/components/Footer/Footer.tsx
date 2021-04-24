@@ -9,8 +9,8 @@ export function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className={b()}>
-            <p className={b('div')}>{currentYear},&nbsp;Moodsic, Emotional-based music playlist generation&nbsp;</p>
+        <div className={b('')}>
+            <p className={b('p')}>{currentYear},&nbsp;Moodsic, Emotional-based music playlist generation&nbsp;</p>
         </div>
     );
 }

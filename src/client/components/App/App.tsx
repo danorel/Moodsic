@@ -11,11 +11,13 @@ function App() {
     return (
         <div className="app">
             <Header/>
-            <Switch>
-                {routes.map(({ fetchData, ...routeProps }) => (
-                    <Route key={routeProps.path} {...routeProps} />
-                ))}
-            </Switch>
+            <React.Fragment>
+                <Switch>
+                    {routes.map(({ fetchData, ...routeProps }) => (
+                        <Route key={routeProps.path} {...routeProps} />
+                    ))}
+                </Switch>
+            </React.Fragment>
             <Footer/>
         </div>
     );

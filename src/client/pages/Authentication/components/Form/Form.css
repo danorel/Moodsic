@@ -1,26 +1,30 @@
+.authentication-page-form__grid-item {
+    width: 80%;
+}
+
 .authentication-page-form__input {
+    width: 100%;
     background: #d1f7ff;
     border-radius: 10px;
 
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
-    line-height: 22px;
     padding: 12px;
 
     color: rgba(0, 0, 0, 0.47);
 }
 
-.authentication-page-form__button-sign-up {
+.authentication-page-form__button {
+    width: 100%;
     background: #f4900c;
     border-radius: 10px;
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     padding: 12px;
-    line-height: 18px;
     display: flex;
     align-items: center;
     text-align: center;

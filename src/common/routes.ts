@@ -29,8 +29,8 @@ export default [
         path: '/authentication',
         component: AuthenticationPage,
         exact: true,
-        fetchData({ dispatch, match }: RouterFetchDataArgs) {
-            dispatch(fetchMusicloverRequest(match.params.musicloverId));
+        fetchData({ dispatch }: RouterFetchDataArgs) {
+            dispatch(fetchMusicloverRequest());
             dispatch(fetchHomepageRequest());
         },
     },
@@ -39,7 +39,7 @@ export default [
         component: PreferencesPage,
         exact: true,
         fetchData({ dispatch, match }: RouterFetchDataArgs) {
-            dispatch(fetchMusicloverRequest(match.params.musicloverId));
+            dispatch(fetchMusicloverRequest());
             dispatch(fetchHomepageRequest());
         },
     },
@@ -47,8 +47,8 @@ export default [
         path: '/musiclover/:musicloverId/playlist/:playlistId',
         component: PlaylistPage,
         exact: true,
-        fetchData({ dispatch, match }: RouterFetchDataArgs) {
-            dispatch(fetchMusicloverRequest(match.params.musicloverId));
+        fetchData({ dispatch }: RouterFetchDataArgs) {
+            dispatch(fetchMusicloverRequest());
             dispatch(fetchHomepageRequest());
         },
     },
@@ -56,8 +56,8 @@ export default [
         path: '/musiclover/:musicloverId/my-playlists/',
         component: PlaylistsPage,
         exact: true,
-        fetchData({ dispatch, match }: RouterFetchDataArgs) {
-            dispatch(fetchMusicloverRequest(match.params.musicloverId));
+        fetchData({ dispatch }: RouterFetchDataArgs) {
+            dispatch(fetchMusicloverRequest());
             dispatch(fetchHomepageRequest());
         },
     },
