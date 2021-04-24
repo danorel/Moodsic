@@ -1,29 +1,66 @@
 @import '~styles/media.css';
 
-.header {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 35px;
-    align-items: center;
-    justify-content: center;
+.header__gridbox {
+    height: 20vmin;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5% 10% auto 15% 15%;
+    grid-template-rows: auto;
+}
+
+.header__grid-item-logo {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: one;
+    grid-row-end: auto;
     text-align: center;
 }
 
+.header__grid-item-space {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: one;
+    grid-row-end: auto;
+}
+
+.header__grid-item-sign-in {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: one;
+    grid-row-end: auto;
+}
+
+.header__grid-item-sign-up {
+    grid-column-start: 5;
+    grid-column-end: auto;
+    grid-row-start: one;
+    grid-row-end: auto;
+}
+
+.header__grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
 .header__logo {
-    background-image: url("./logo.jpg");
-    width: 100px;
-    height: 120px;
+    width: 11.5vmin;
+    height: 11.5vmin;
+    align-self: center;
+    background-image: url("./logo.svg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
     background-position: center;
-    background-size: cover;
-    margin: 0 auto;
-    margin-bottom: 25px;
 }
 
 .header__nav {
+
 }
 
 .header__nav-item {
-    margin-right: 15px;
     font-weight: bold;
     color: #000;
     font-size: 16px;

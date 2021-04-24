@@ -30,7 +30,7 @@ export function usePlaylist() {
     );
 
     const fetchMusiclover = React.useCallback(
-        (musicloverId: MusicloverId) => dispatch(fetchMusicloverActionCreator(musicloverId)),
+        () => dispatch(fetchMusicloverActionCreator()),
         [dispatch]
     );
 

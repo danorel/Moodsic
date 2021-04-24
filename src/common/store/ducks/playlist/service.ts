@@ -1,7 +1,7 @@
 import { timeout } from '../timeoutHelper';
 
 // @ts-ignore
-import mock from './mock.json';
+import mock from './mocks/mock.json';
 
 export const serializer = (data: any) => {
     const [, image] = (data.spriteSheet || '').match(/img0=([^&]+)&?/);

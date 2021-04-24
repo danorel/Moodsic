@@ -7,37 +7,61 @@ import './Header.css';
 
 enum PageName {
     Home = 'Home',
-    Catalog = 'Catalog',
-    Upcoming = 'Upcoming',
+    SignIn = 'Sign In',
+    SignUp = 'Sign Up'
 }
-
-const menu = [
-    { to: '/', exact: true, page: PageName.Home },
-    { to: '/musiclover', exact: true, page: PageName.Catalog },
-    { to: '/upcoming', exact: true, page: PageName.Upcoming },
-];
 
 const preloadPage = (pageName: string) =>
     loadable(() => import(`../../pages/${pageName}/${pageName}`));
 
 const b = bem.with('header');
 
+const menu = [
+    {
+        to: '/',
+        exact: true,
+        styles: 'grid-item-logo header__grid-item',
+        child: <div className={b('logo')} />
+    },
+    {
+        to: '/',
+        exact: true,
+        styles: 'grid-item-space header__grid-item',
+        child: <div/>,
+    },
+    {
+        to: '/authentication',
+        exact: true,
+        styles: 'grid-item-sign-in header__grid-item',
+        page: PageName.SignIn,
+    },
+    {
+        to: '/authentication',
+        exact: true,
+        styles: 'grid-item-sign-up header__grid-item',
+        page: PageName.SignUp,
+    },
+];
+
 export function Header() {
     return (
-        <div className={b()}>
-            <div className={b('logo')} />
-            <nav className={b('nav')}>
+        <div className={b('')}>
+            <nav className={b('gridbox')}>
                 {menu.map(data => (
-                    <NavLink
-                        key={data.to}
-                        exact={data.exact}
-                        activeClassName="header__nav-item_active"
-                        to={data.to}
-                        className={b('nav-item')}
-                        onMouseMove={() => preloadPage(data.page).preload()}
-                    >
-                        {data.page}
-                    </NavLink>
+                    <div className={b(data.styles)}>
+                        <NavLink
+                            key={data.to}
+                            exact={data.exact}
+                            activeClassName="header__nav-item_active"
+                            to={data.to}
+                            className={b('nav-item')}
+                            onMouseMove={() => preloadPage(data.page).preload()}
+                        >
+                            {'page' in data
+                                ? data.page
+                                : data.child}
+                        </NavLink>
+                    </div>
                 ))}
             </nav>
         </div>
