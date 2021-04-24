@@ -10,10 +10,7 @@ export function Footer() {
 
     return (
         <div className={b()}>
-            {currentYear},&nbsp;React Server Side rendering example&nbsp;
-            <a href="https://github.com/noveogroup-amorgunov/react-ssr-tutorial">
-                (Source code)
-            </a>
+            <p className={b('div')}>{currentYear},&nbsp;Moodsic, Emotional-based music playlist generation&nbsp;</p>
         </div>
     );
 }
