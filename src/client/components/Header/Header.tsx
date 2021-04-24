@@ -20,6 +20,7 @@ const menu = [
     {
         to: '/',
         exact: true,
+        item: 'nav-item-logo',
         styles: 'grid-item-logo header__grid-item',
         child: <div className={b('logo')} />
     },
@@ -32,14 +33,18 @@ const menu = [
     {
         to: '/authentication',
         exact: true,
+        item: 'nav-item-sign-in',
         styles: 'grid-item-sign-in header__grid-item',
         page: PageName.SignIn,
+        child: <div className={b('button-sign-in')}>{PageName.SignIn}</div>,
     },
     {
         to: '/authentication',
         exact: true,
+        item: 'nav-item-sign-up',
         styles: 'grid-item-sign-up header__grid-item',
         page: PageName.SignUp,
+        child: <div className={b('button-sign-up')}>{PageName.SignUp}</div>,
     },
 ];
 
@@ -52,14 +57,12 @@ export function Header() {
                         <NavLink
                             key={data.to}
                             exact={data.exact}
-                            activeClassName="header__nav-item_active"
+                            // activeClassName="header__nav-item_active"
                             to={data.to}
-                            className={b('nav-item')}
+                            className={'item' in data ? b(data.item) : ''}
                             onMouseMove={() => preloadPage(data.page).preload()}
                         >
-                            {'page' in data
-                                ? data.page
-                                : data.child}
+                            {data.child}
                         </NavLink>
                     </div>
                 ))}

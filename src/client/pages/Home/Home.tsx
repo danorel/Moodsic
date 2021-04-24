@@ -24,12 +24,6 @@ function Home(props: Props) {
     return (
         <Page>
             <PageMeta title="Home page" description="Buy awesome snickers" />
-            <PageContainer>
-                <h2>Popular</h2>
-            </PageContainer>
-            <PageContainer btn={{ to: '/musiclover', text: 'See more' }}>
-                <h2>Newest</h2>
-            </PageContainer>
         </Page>
     );
 }
