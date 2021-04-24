@@ -4,7 +4,7 @@ import * as bem from 'b_';
 import './ContainerVerticalAligned.css';
 
 type Props = {
-    children: React.ReactChild;
+    children: React.ReactNode;
     type?:
         | 'default';
     className?: string;
