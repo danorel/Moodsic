@@ -5,29 +5,31 @@ import { Grid } from '@material-ui/core';
 
 import './Tabs.css';
 
+import { AuthenticationSwitching } from 'RootModels';
+
 const b = bem.with('authentication-page-tabs');
 
 interface TabsViewProps {
-    isSignIn: boolean;
-    onClick: (newSignIn: boolean) => void;
+    switching: AuthenticationSwitching;
+    onChange: (switching: AuthenticationSwitching) => void;
 }
 
-export function TabsComponent({ isSignIn, onClick }: TabsViewProps) {
+export function TabsComponent({ switching, onChange }: TabsViewProps) {
     return (
         <React.Fragment>
             <div className={b('div-tab')}>
                 <Grid container direction="row" justify="space-between" alignItems="flex-start" spacing={2}>
                     <Grid item>
-                        <div className={b('div-tab-sign-in')} onClick={() => onClick(true)}>
+                        <div className={b('div-tab-sign-in')} onClick={() => onChange(true)}>
                             Sign In
                         </div>
-                        {isSignIn ? <div className={b('div-tab-divider')} /> : null}
+                        {switching ? <div className={b('div-tab-divider')} /> : null}
                     </Grid>
                     <Grid item>
-                        <div className={b('div-tab-sign-up')} onClick={() => onClick(false)}>
+                        <div className={b('div-tab-sign-up')} onClick={() => onChange(false)}>
                             Sign Up
                         </div>
-                        {!isSignIn ? <div className={b('div-tab-divider')} /> : null}
+                        {!switching ? <div className={b('div-tab-divider')} /> : null}
                     </Grid>
                 </Grid>
             </div>

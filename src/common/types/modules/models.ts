@@ -1,5 +1,19 @@
 declare module 'RootModels' {
     /*
+     * Authentication types
+     *    - status: boolean
+     *    - switch: boolean
+     */
+
+    export type AuthenticationStatus = boolean;
+
+    export type AuthenticationSwitching =
+        | true  // stands for sign in
+        | false // stands for sign up
+
+    export type AuthenticationEmail = string;
+
+    /*
      * Musiclover types:
      *    - id
      */

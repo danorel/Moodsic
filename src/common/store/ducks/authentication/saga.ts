@@ -14,6 +14,20 @@ function* fetchAuthentication() {
     }
 }
 
+function* fetchSubmission() {
+    try {
+        const data = yield call(service.fetchSubmission);
+
+        yield put(actions.fetchSubmissionSuccess(data));
+    } catch (error) {
+        yield put(actions.fetchSubmissionError(error.message));
+    }
+}
+
 export function* authenticationSaga() {
     yield takeLatest(types.FETCH_AUTHENTICATION_REQUEST, fetchAuthentication);
+}
+
+export function* submissionSaga() {
+    yield takeLatest(types.FETCH_SUBMISSION_REQUEST, fetchSubmission);
 }

@@ -20,9 +20,13 @@ export default function Authentication() {
     const history = useHistory();
 
     const {
-        isSignIn,
+        email,
+        switching,
         isLoading,
         isAuthenticated,
+        onChangeEmail,
+        onChangeSwitching,
+        fetchSubmission,
         fetchAuthentication,
     } = useAuthentication();
 
@@ -44,13 +48,17 @@ export default function Authentication() {
                     <div className={b('div-frame')}>
                         <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
                             <Grid item>
-                                <TabsComponent isSignIn={isSignIn} onClick={null} />
+                                <TabsComponent switching={switching} onChange={onChangeSwitching} />
                             </Grid>
                             <Grid item>
-                                <TitleComponent isSignIn={isSignIn} />
+                                <TitleComponent switching={switching} />
                             </Grid>
                             <Grid item>
-                                <FormComponent value={''} isSignIn={isSignIn} onClick={null} onChange={null} />
+                                <FormComponent
+                                    value={email}
+                                    switching={switching}
+                                    onSubmit={fetchSubmission}
+                                    onChange={onChangeEmail} />
                             </Grid>
                         </Grid>
                     </div>
