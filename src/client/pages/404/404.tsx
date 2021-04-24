@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, RouteComponentProps } from 'react-router-dom';
-import { Page, PageContainer } from 'client/components';
+import { Container, ContainerVertical } from 'client/components';
 
 type Props = {
     code: number;
@@ -24,11 +24,11 @@ const Status = ({ code, children }: Props) => {
 export default function NotFoundPage() {
     return (
         <Status code={404}>
-            <Page>
-                <PageContainer>
+            <Container>
+                <ContainerVertical>
                     <h1>Page not found</h1>
-                </PageContainer>
-            </Page>
+                </ContainerVertical>
+            </Container>
         </Status>
     );
 }

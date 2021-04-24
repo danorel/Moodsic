@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as bem from 'b_';
 
-import { Page } from 'client/components';
+import { Container } from 'client/components';
 
 import { PlaylistStub } from './Playlist.stub';
 
@@ -22,7 +22,7 @@ function PlaylistPage() {
 
     React.useEffect(() => {
         if (!data || data.id !== match.params.musicloverId) {
-            fetchMusiclover(match.params.musicloverId);
+            fetchMusiclover();
             fetchPlaylist(match.params.playlistId);
         }
     }, [match]);
@@ -33,9 +33,9 @@ function PlaylistPage() {
     const { songs, aim, id, mood, name, weather } = data;
 
     return (
-        <Page mix={b()}>
+        <Container>
             <div>{aim}</div>
-        </Page>
+        </Container>
     );
 }
 

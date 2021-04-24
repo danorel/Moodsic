@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { Page, } from 'client/components';
+import { Container, ContainerVertical } from 'client/components';
 
 export function HomeStub() {
     return (
-        <Page>
-            <div>Loading...</div>
-        </Page>
+        <Container>
+            <ContainerVertical>
+                <div>Loading...</div>
+            </ContainerVertical>
+        </Container>
     );
 }

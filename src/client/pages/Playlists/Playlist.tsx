@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { State } from 'RootState';
 import { Playlist } from 'RootModels';
-import { PageMeta, PageContainer, Page } from 'client/components';
+import { PageMeta, Container, ContainerVertical } from 'client/components';
 import { PlaylistStubComponent } from './Playlist.stub';
 import { fetchPlaylistRequest } from 'common/store/ducks/playlist/actions';
 import { getPlaylist, isLoading } from 'common/store/ducks/playlist/selectors';
@@ -25,15 +25,15 @@ function PlaylistComponent(props: Props) {
         return <PlaylistStubComponent />;
 
     return (
-        <Page>
+        <Container>
             <PageMeta
                 title="Playlist page"
                 description="See awesome collection of snickers"
             />
-            <PageContainer>
+            <ContainerVertical>
                 <h2>Playlist</h2>
-            </PageContainer>
-        </Page>
+            </ContainerVertical>
+        </Container>
     );
 }
 

@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import * as bem from 'b_';
 import { State } from 'RootState';
-import { PageMeta, Page, PageContainer } from 'client/components';
+import { PageMeta } from 'client/components';
 import { fetchHomepageRequest } from 'common/store/ducks/homepage/actions';
 import { getHomepage, isLoading } from 'common/store/ducks/homepage/selectors';
 import { HomeStub } from './Home.stub';
@@ -13,8 +12,6 @@ type Props = {
     isLoading: boolean;
 };
 
-const b = bem.with('page');
-
 function Home(props: Props) {
     const { isLoading } = props;
 
@@ -22,9 +19,9 @@ function Home(props: Props) {
         return <HomeStub />;
 
     return (
-        <Page>
+        <React.Fragment>
             <PageMeta title="Home page" description="Buy awesome snickers" />
-        </Page>
+        </React.Fragment>
     );
 }
 

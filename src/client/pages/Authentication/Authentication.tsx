@@ -14,6 +14,11 @@ import { TitleComponent } from './components/Title';
 
 import './Authentication.css';
 
+import {
+    Container,
+    ContainerVertical
+} from 'client/components';
+
 const b = bem.with('authentication-page');
 
 
@@ -48,8 +53,8 @@ export default function Authentication() {
 
     return (
         <React.Fragment>
-            <div className={b('div-background')}>
-                <div className={b('div-inner')}>
+            <Container>
+                <ContainerVertical>
                     <div className={b('div-frame')}>
                         <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
                             <Grid item>
@@ -67,8 +72,8 @@ export default function Authentication() {
                             </Grid>
                         </Grid>
                     </div>
-                </div>
-            </div>
+                </ContainerVertical>
+            </Container>
         </React.Fragment>
     );
 }
