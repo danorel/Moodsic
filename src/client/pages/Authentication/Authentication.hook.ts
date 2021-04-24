@@ -1,33 +1,30 @@
 import * as React from 'react';
-import { useRouteMatch } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-    selectMusiclover,
+    selectSignIn as isSignInSelector,
     selectLoading as isLoadingSelector,
-} from 'common/store/ducks/musiclover/selectors';
+    selectAuthenticated as authenticatedSelector,
+} from '../../../common/store/ducks/authentication/selectors';
 
-import { fetchMusicloverRequest as fetchMusicloverActionCreator } from 'common/store/ducks/musiclover/actions';
-
-import { MusicloverId } from 'RootModels';
+import { fetchAuthenticationRequest as fetchAuthenticationActionCreator } from 'common/store/ducks/authentication/actions';
 
 export function useAuthentication() {
     const dispatch = useDispatch();
 
-    const match = useRouteMatch<{ musicloverId: MusicloverId }>();
-
-    const data = useSelector(selectMusiclover);
+    const isSignIn = useSelector(isSignInSelector);
     const isLoading = useSelector(isLoadingSelector);
+    const isAuthenticated = useSelector(authenticatedSelector);
 
-    const fetchMusiclover = React.useCallback(
-        (id: MusicloverId) => dispatch(fetchMusicloverActionCreator(id)),
+    const fetchAuthentication = React.useCallback(
+        () => dispatch(fetchAuthenticationActionCreator()),
         [dispatch]
     );
 
     return {
-        match,
-        data,
+        isSignIn,
         isLoading,
-        fetchMusiclover,
+        isAuthenticated,
+        fetchAuthentication,
     };
 }

@@ -1,0 +1,54 @@
+import {
+    AuthenticationActionTypes,
+    FETCH_AUTHENTICATION_REQUEST,
+    FETCH_AUTHENTICATION_SUCCESS,
+    FETCH_AUTHENTICATION_FAILURE,
+} from './types';
+
+import produce, { Draft } from 'immer';
+
+export interface AuthenticationState {
+    readonly data: {
+        isSignIn: boolean;
+        isAuthenticated: boolean;
+    };
+    readonly isLoading: boolean;
+    readonly error?: string;
+}
+
+export const initialState: AuthenticationState = {
+    data: {
+        isSignIn: true,
+        isAuthenticated: false
+    },
+    isLoading: false,
+    error: undefined,
+};
+
+export default produce(
+    (
+        draft: Draft<AuthenticationState> = initialState,
+        action: AuthenticationActionTypes
+    ) => {
+        switch (action.type) {
+            case FETCH_AUTHENTICATION_REQUEST:
+                draft.isLoading = true;
+                draft.error = undefined;
+                return;
+            case FETCH_AUTHENTICATION_SUCCESS:
+                draft.data = {
+                    ...draft.data,
+                    ...action.payload
+                }
+                draft.isLoading = false;
+                draft.error = undefined;
+                return;
+            case FETCH_AUTHENTICATION_FAILURE:
+                draft.data = initialState.data;
+                draft.isLoading = false;
+                draft.error = action.payload;
+                return;
+        }
+        return draft;
+    }
+);

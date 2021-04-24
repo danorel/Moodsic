@@ -5,11 +5,11 @@ import mock from './mock.json';
 
 export const serializer = (data: any) => {
     return {
-        musicloverId: data.musicloverId
+        isAuthenticated: data.isAuthenticated
     };
 };
 
 // Emulate api request
-export const fetchMusiclover = () =>
+export const fetchAuthentication = () =>
     timeout(500)
         .then(() => serializer({ ...mock }));

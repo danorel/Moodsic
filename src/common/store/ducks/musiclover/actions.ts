@@ -1,9 +1,9 @@
-import { Musiclover, MusicloverId } from 'RootModels';
+import { Musiclover } from 'RootModels';
 import * as types from './types';
 
 // action creators
-export function fetchMusicloverRequest(id: MusicloverId): types.FetchMusicloverRequestAction {
-    return { type: types.FETCH_MUSICLOVER_REQUEST, payload: id };
+export function fetchMusicloverRequest(): types.FetchMusicloverRequestAction {
+    return { type: types.FETCH_MUSICLOVER_REQUEST };
 }
 
 export function fetchMusicloverSuccess(

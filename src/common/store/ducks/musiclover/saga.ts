@@ -4,9 +4,9 @@ import * as types from './types';
 import * as actions from './actions';
 import * as service from './service';
 
-function* fetchCatalog() {
+function* fetchMusiclover() {
     try {
-        const data = yield call(service.fetchCatalog);
+        const data = yield call(service.fetchMusiclover);
 
         yield put(actions.fetchMusicloverSuccess(data));
     } catch (error) {
@@ -15,5 +15,5 @@ function* fetchCatalog() {
 }
 
 export function* musicloverSaga() {
-    yield takeLatest(types.FETCH_MUSICLOVER_REQUEST, fetchCatalog);
+    yield takeLatest(types.FETCH_MUSICLOVER_REQUEST, fetchMusiclover);
 }

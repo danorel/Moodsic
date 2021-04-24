@@ -4,7 +4,7 @@ declare module 'RootModels' {
      *    - id
      */
 
-    export type MusicloverId = string;
+    export type MusicloverId = string | null;
 
     export type Musiclover = {
         id: MusicloverId;

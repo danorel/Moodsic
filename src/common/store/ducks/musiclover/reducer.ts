@@ -17,7 +17,7 @@ export interface MusicloverState {
 
 export const initialState: MusicloverState = {
     data: {
-        id: ""
+        id: null
     },
     isLoading: false,
     error: undefined,

@@ -1,9 +1,10 @@
 import { fork, all } from 'redux-saga/effects';
 
-import { musicloverSaga } from './ducks/musiclover/saga';
+import { routerSaga } from './ducks/router/saga';
 import { playlistSaga } from './ducks/playlist/saga';
 import { homepageSaga } from './ducks/homepage/saga';
-import { routerSaga } from './ducks/router/saga';
+import { musicloverSaga } from './ducks/musiclover/saga';
+import { authenticationSaga } from './ducks/authentication/saga';
 
 export default function* rootSaga() {
     yield all([
@@ -11,5 +12,6 @@ export default function* rootSaga() {
         fork(routerSaga),
         fork(musicloverSaga),
         fork(playlistSaga),
+        fork(authenticationSaga)
     ]);
 }

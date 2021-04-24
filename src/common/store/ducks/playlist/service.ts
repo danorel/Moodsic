@@ -1,4 +1,5 @@
 import { timeout } from '../timeoutHelper';
+
 // @ts-ignore
 import mock from './mock.json';
 

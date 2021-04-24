@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as bem from 'b_';
+import { useHistory } from "react-router-dom";
 
 import { Grid } from '@material-ui/core';
 
@@ -16,21 +17,25 @@ const b = bem.with('authentication-page');
 
 
 export default function Authentication() {
+    const history = useHistory();
+
     const {
-        match,
-        data,
+        isSignIn,
         isLoading,
-        fetchMusiclover,
+        isAuthenticated,
+        fetchAuthentication,
     } = useAuthentication();
 
     React.useEffect(() => {
-        if (!data || data.id !== match.params.musicloverId)
-            fetchMusiclover(match.params.musicloverId);
-    }, [match]);
+        fetchAuthentication();
+    }, []);
+
+    React.useEffect(() => {
+        if (isAuthenticated)
+            history.push("/");
+    }, [isAuthenticated])
 
     if (isLoading) return <AuthenticationStub/>;
-
-    const { id } = data;
 
     return (
         <React.Fragment>
@@ -39,13 +44,13 @@ export default function Authentication() {
                     <div className={b('div-frame')}>
                         <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
                             <Grid item>
-                                <TabsComponent isSignIn={false} onClick={null} />
+                                <TabsComponent isSignIn={isSignIn} onClick={null} />
                             </Grid>
                             <Grid item>
-                                <TitleComponent isSignIn={false} />
+                                <TitleComponent isSignIn={isSignIn} />
                             </Grid>
                             <Grid item>
-                                <FormComponent value={''} isSignIn={false} onClick={null} onChange={null} />
+                                <FormComponent value={''} isSignIn={isSignIn} onClick={null} onChange={null} />
                             </Grid>
                         </Grid>
                     </div>
