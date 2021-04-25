@@ -8,7 +8,6 @@ export default function Preferences() {
             <PageMeta title="Preferences..." description="" />
             <ContainerVertical>
                 <h2>Preferences...</h2>
-                <div className="upcoming-banner" />
             </ContainerVertical>
         </Container>
     );

@@ -1,7 +1,7 @@
 import { timeout } from '../timeoutHelper';
 
 // @ts-ignore
-import mock from './mock.json';
+import mock from './mocks/musicloverMock.json';
 
 export const serializer = (data: any) => {
     return {
