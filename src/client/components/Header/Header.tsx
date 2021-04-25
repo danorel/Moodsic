@@ -29,19 +29,21 @@ function Header({ type }: HeaderProps) {
                 <div className={b('flex-item')}>
                     <nav className={b('grid-box', { type })}>
                         {HeaderAuthorizedMenu.map((data, id: number) => (
-                            <div key={id} className={b(data.styles, { type })}>
-                                <NavLink
-                                    key={id}
-                                    exact={data.exact}
-                                    to={data.query
-                                        ? `${data.to}?${data.query}`
-                                        : data.to}
-                                    activeClassName={null}
-                                    className={'item' in data ? b(data.item) : null}
-                                    onMouseMove={() => preloadPage(data.path).preload()}
-                                >
-                                    {data.child}
-                                </NavLink>
+                            <div key={id} className={b('grid-item')}>
+                                {data.complex
+                                    ?  <NavLink
+                                        key={id}
+                                        exact={data.exact}
+                                        to={data.query
+                                            ? `${data.to}?${data.query}`
+                                            : data.to}
+                                        activeClassName={null}
+                                        className={data.styles}
+                                        onMouseMove={() => preloadPage(data.path).preload()}
+                                    >
+                                        {data.child}
+                                    </NavLink>
+                                : data.child}
                             </div>
                         ))}
                     </nav>

@@ -1,3 +1,4 @@
 @use postcss-simple-vars;
 
 $font-color: #1A3B70;
+$font-family: Montserrat, sans-serif;
