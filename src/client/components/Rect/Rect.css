@@ -1,15 +1,11 @@
-.rect
-{
-    &_type
-    {
-        &_default
-        {
-            background: #e6e6e6;
-        }
+.rect {
+&_type {
+&_default {
+    background: #e6e6e6;
+}
 
-        &_black
-        {
-            background: #aaa;
-        }
-    }
+&_black {
+    background: #aaa;
+}
+}
 }

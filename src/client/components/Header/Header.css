@@ -27,25 +27,22 @@
     width: 100%;
 }
 
-.header__grid-box
-{
+.header__grid-box {
     display: grid;
-    &_type
-    {
-        &_authorized
-        {
-            grid-template-columns: 5% 10% auto 13.5% 13.5% 13.5% 5%;
-            grid-template-rows: auto;
-            grid-auto-rows: 100%;
-        }
 
-        &_non-authorized
-        {
-            grid-template-columns: 5% 10% auto 12% 12% 5%;
-            grid-template-rows: auto;
-            grid-auto-rows: 100%;
-        }
-    }
+&_type {
+&_authorized {
+    grid-template-columns: 5% 10% auto 13.5% 13.5% 13.5% 5%;
+    grid-template-rows: auto;
+    grid-auto-rows: 100%;
+}
+
+&_non-authorized {
+    grid-template-columns: 5% 10% auto 12% 12% 5%;
+    grid-template-rows: auto;
+    grid-auto-rows: 100%;
+}
+}
 }
 
 .header__grid-item {
@@ -58,32 +55,32 @@
 .header__nav-item-link {
     text-decoration: none;
     border-radius: 20px;
-    &_active
-    {
-        background: #F8C542;
-        box-shadow: 0px 1.83019px 1.83019px rgba(0, 0, 0, 0.25);
-    }
-    &_button
-    {
-        width: 100%;
-        border-radius: 20px;
-        color: $font-color;
-        font-size: 2.05vmin;
-        font-weight: bold;
-        font-style: normal;
-        font-family: $font-family;
-        text-transform: uppercase;
-        text-decoration: none;
-        padding: 1.5vmin 3.25vmin;
-    }
-    &_logo
-    {
-        width: 11.5vmin;
-        height: 11.5vmin;
-        align-self: center;
-        background-image: url("./logo.svg");
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        background-position: center;
-    }
+
+&_active {
+    background: #f8c542;
+    box-shadow: 0 1.83019px 1.83019px rgba(0, 0, 0, 0.25);
+}
+
+&_button {
+    width: 100%;
+    border-radius: 20px;
+    color: $font-color;
+    font-size: 2.05vmin;
+    font-weight: bold;
+    font-style: normal;
+    font-family: $font-family;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5vmin 3.25vmin;
+}
+
+&_logo {
+    width: 11.5vmin;
+    height: 11.5vmin;
+    align-self: center;
+    background-image: url("./logo.svg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+}
 }

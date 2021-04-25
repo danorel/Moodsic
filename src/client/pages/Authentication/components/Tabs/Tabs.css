@@ -1,6 +1,7 @@
-@import '~styles/constants.css';
+@import '../../../../styles/constants.css';
 
 .authentication-tabs__tab {
+    width: auto;
 }
 
 .authentication-tabs__tab-item {

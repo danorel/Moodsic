@@ -28,8 +28,10 @@ const config: Configuration = {
     },
     resolve: {
         modules: ['src', 'node_modules'],
-        alias: { 'react-dom': '@hot-loader/react-dom' },
-        extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx'],
+        alias: {
+            'react-dom': '@hot-loader/react-dom',
+        },
+        extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx', '.css'],
         plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
     },
     plugins: [

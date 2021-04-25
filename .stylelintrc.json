@@ -1,0 +1,22 @@
+{
+  "extends": "stylelint-config-standard",
+  "reportDescriptionlessDisables": [
+    false,
+    {
+      "except": ["color-hex-case"],
+      "severity": "warning"
+    }
+  ],
+  "rules": {
+    "indentation": [
+      4,
+      {
+        "except": [
+          "block"
+        ],
+        "message": "Please use 4 spaces for indentation.",
+        "severity": "warning"
+      }
+    ]
+  }
+}

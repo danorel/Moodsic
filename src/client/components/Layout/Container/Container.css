@@ -1,19 +1,16 @@
-.container
-{
+.container {
     min-height: 100vh;
     min-width: 100vw;
     text-align: center;
     position: relative;
-    &_type
-    {
-        &_default
-        {
-            background: linear-gradient(180deg, #ffffff 0%, #ffffff 20.31%, rgba(255, 255, 255, 0) 100%), #d1f7ff;
-        }
 
-        &_black
-        {
-            background: linear-gradient(180deg, #ffffff 0%, #ffffff 20.31%, rgba(255, 255, 255, 0) 100%), #130303;
-        }
-    }
+&_type {
+&_default {
+    background: linear-gradient(180deg, #fff 0%, #fff 20.31%, rgba(255, 255, 255, 0) 100%), #d1f7ff;
+}
+
+&_black {
+    background: linear-gradient(180deg, #fff 0%, #fff 20.31%, rgba(255, 255, 255, 0) 100%), #130303;
+}
+}
 }
