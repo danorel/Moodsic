@@ -3,7 +3,7 @@ import * as bem from 'b_';
 
 import './Body.css';
 
-import { PlaygroundItem } from 'RootModels';
+import { PlaygroundAim, PlaygroundMood } from 'RootModels';
 
 const b = bem.with('page-body');
 
@@ -22,34 +22,40 @@ function Description({ title }: DescriptionProps) {
 }
 
 type ItemProps = {
-    emoji: string;
     title: string;
 }
 
-function Item({ title, emoji }: ItemProps) {
+function Item({ title }: ItemProps) {
     return (
         <React.Fragment>
-            <div className={b('item')}>
-                {title}{emoji}
+            <div className={b('item-container')}>
+                <span className={b('item-span')}>{title}</span>
             </div>
         </React.Fragment>
     );
 }
 
 type BodyProps = {
-    items: PlaygroundItem[]
+    items: (PlaygroundMood | PlaygroundAim)[]
 }
 
 function Body({ items }: BodyProps) {
     return (
         <React.Fragment>
             <div className={b('container')}>
-                <div className={b('flex-box')}>
-                    {items.map(itemProps => (
-                        <div className={b('flex-item')}>
-                            <Item {...itemProps}/>
+                <div className={b('grid-box')}>
+                    <div className={b('grid-item')}>
+                        <Description title="Choose your mood" />
+                    </div>
+                    <div className={b('grid-item')}>
+                        <div className={b('flex-box')}>
+                            {items.map(itemProps => (
+                                <div className={b('flex-item')}>
+                                    <Item {...itemProps}/>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
             </div>
         </React.Fragment>

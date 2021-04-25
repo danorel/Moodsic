@@ -1,4 +1,4 @@
-.playground__flex-box {
+.playground-page__flex-box {
     width: 100%;
     height: 100%;
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: space-evenly;
 }
 
-.playground__flex-item {
+.playground-page__flex-item {
     width: 100%;
     margin: auto;
 }

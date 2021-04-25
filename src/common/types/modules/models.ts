@@ -21,9 +21,12 @@ declare module 'RootModels' {
      *       }
      */
 
-    export type PlaygroundItem = {
+    export type PlaygroundAim = {
         title: string;
-        emoji: string;
+    }
+
+    export type PlaygroundMood = {
+        title: string;
     }
 
     /*

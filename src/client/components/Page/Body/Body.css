@@ -1,16 +1,35 @@
 @import "../../../styles/constants.css";
 
 .page-body__container {
+    overflow: scroll;
     margin: auto;
     align-self: center;
-    width: 55vmin;
-    height: 45vmin;
+    width: 45vmin;
+    height: 50vmin;
+    padding: 5px;
     background: #F89942;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
 
+.page-body__grid-box {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 20% auto;
+    grid-auto-columns: auto;
+}
+
+.page-body__grid-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .page-body__flex-box {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -18,11 +37,33 @@
 
 .page-body__flex-item {
     width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 3px;
 }
 
-.page-body__item {
-    height: 3vmin;
+.page-body__flex-item:last-child {
+    padding-bottom: 20px;
+}
+
+.page-body__item-container {
+    width: 80%;
+    height: 5.85vmin;
     background: #FFF0CA;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-body__item-span {
+    width: 100%;
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.8vmin;
+    color: $font-color;
 }
 
 .page-body__description {

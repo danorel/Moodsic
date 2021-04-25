@@ -5,6 +5,7 @@ import { playlistSaga } from './ducks/playlist/saga';
 import { homepageSaga } from './ducks/homepage/saga';
 import { musicloverSaga } from './ducks/musiclover/saga';
 import { authenticationSaga, submissionSaga } from './ducks/authentication/saga';
+import { playgroundConfigSaga } from './ducks/playground/saga';
 
 export default function* rootSaga() {
     yield all([
@@ -13,6 +14,7 @@ export default function* rootSaga() {
         fork(musicloverSaga),
         fork(playlistSaga),
         fork(submissionSaga),
-        fork(authenticationSaga)
+        fork(authenticationSaga),
+        fork(playgroundConfigSaga)
     ]);
 }

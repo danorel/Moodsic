@@ -1,0 +1,24 @@
+{
+    "config": {
+        "moods": [
+            { "title": "Happy \uD83D\uDE0D" },
+            { "title": "Sad \uD83D\uDE1E" },
+            { "title": "Delighted \uD83D\uDE0B" },
+            { "title": "Stressed \uD83D\uDE33" },
+            { "title": "Relaxed \uD83D\uDE0C" },
+            { "title": "Irritated \uD83D\uDE12" },
+            { "title": "Angry \uD83D\uDE21" },
+            { "title": "In love ❤" }
+        ],
+        "aims": [
+            { "title": "Work" },
+            { "title": "Chill out" },
+            { "title": "Swim" },
+            { "title": "Workout" },
+            { "title": "Mediate" },
+            { "title": "Dance" },
+            { "title": "Coding" },
+            { "title": "Walking out" }
+        ]
+    }
+}

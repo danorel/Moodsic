@@ -1,3 +1,5 @@
+import produce, { Draft } from 'immer';
+
 import {
     MusicloverActionTypes,
     FETCH_MUSICLOVER_REQUEST,
@@ -6,8 +8,6 @@ import {
 } from './types';
 
 import { Musiclover } from 'RootModels';
-
-import produce, { Draft } from 'immer';
 
 export interface MusicloverState {
     readonly data: Musiclover;
