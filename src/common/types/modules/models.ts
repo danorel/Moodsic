@@ -14,6 +14,19 @@ declare module 'RootModels' {
     export type AuthenticationEmail = string;
 
     /*
+     * Playground types:
+     *     - item: {
+     *          title: string;
+     *          emoji: string;
+     *       }
+     */
+
+    export type PlaygroundItem = {
+        title: string;
+        emoji: string;
+    }
+
+    /*
      * Musiclover types:
      *    - id
      */

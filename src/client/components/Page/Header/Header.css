@@ -1,19 +1,19 @@
 @import '../../../styles/constants.css';
 
-.header__flex-box {
+.page-header__flex-box {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.header__flex-item {
+.page-header__flex-item {
     width: 75%;
     padding: 7px;
     align-self: center;
 }
 
-.header__span {
+.page-header__span {
     font-family: $font-family;
     font-style: normal;
     font-weight: 600;
@@ -22,7 +22,7 @@
     color: #3395BF;
 }
 
-.header__divider {
+.page-header__divider {
     background: #F8C542;
     height: 8px;
     border-radius: 6px;

@@ -5,6 +5,8 @@ import './Playground.css';
 
 import { Header } from '../../components/Page/Header/Header';
 import { Container, ContainerVertical, Meta } from 'client/components';
+import { Body } from '../../components/Page/Body/Body';
+import { Footer } from '../../components/Page/Footer/Footer';
 
 const b = bem.with('playground');
 
@@ -13,7 +15,17 @@ export default function Playground() {
         <Container>
             <Meta title="Playground..." description="" />
             <ContainerVertical>
-                <Header title="How do you feel today?"/>
+                <div className={b('flex-box')}>
+                    <div className={b('flex-item')}>
+                        <Header title="How do you feel today?"/>
+                    </div>
+                    <div className={b('flex-item')}>
+                        <Body items={[{ emoji: '😍', title: 'Happy' }]}/>
+                    </div>
+                    <div className={b('flex-item')}>
+                        <Footer title="Continue"/>
+                    </div>
+                </div>
             </ContainerVertical>
         </Container>
     );

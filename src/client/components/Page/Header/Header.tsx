@@ -3,7 +3,7 @@ import * as bem from 'b_';
 
 import './Header.css';
 
-const b = bem.with('header');
+const b = bem.with('page-header');
 
 function Divider() {
     return (
