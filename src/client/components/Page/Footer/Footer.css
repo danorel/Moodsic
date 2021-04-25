@@ -20,6 +20,13 @@
     &:active {
         background: #4c98ff;
     }
+
+    &_disabled {
+        opacity: 1;
+        background: #edf1f2;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
 }
 
 .page-footer__span {
@@ -30,5 +37,10 @@
     display: flex;
     align-items: center;
     text-align: center;
-    color: #FFFFFF;
+    color: #bebcbc;
+
+    &_disabled {
+        opacity: 1;
+        color: #262628;
+    }
 }

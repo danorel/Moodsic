@@ -18,14 +18,15 @@ export function usePlayground() {
     const isLoading = useSelector(isLoadingSelector);
     const isComplete = useSelector(isCompleteSelector);
 
-    const fetchPlaygroundConfig = React.useCallback(
-        () => dispatch(fetchConfigRequestCreator),
-        [dispatch]);
+    const fetchConfig = React.useCallback(
+        () => dispatch(fetchConfigRequestCreator()),
+        [dispatch]
+    );
 
     return {
         config,
         isLoading,
         isComplete,
-        fetchConfig: fetchPlaygroundConfig
+        fetchConfig
     };
 }

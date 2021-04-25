@@ -4,6 +4,8 @@ import * as bem from 'b_';
 import './Playground.css';
 
 import { Rect, Container, ContainerVertical } from 'client/components';
+import { Header } from '../../components/Page/Header/Header';
+import { Footer } from '../../components/Page/Footer/Footer';
 
 const b = bem.with('playground-page');
 
@@ -12,20 +14,39 @@ export function PlaygroundStub() {
         <React.Fragment>
             <Container>
                 <ContainerVertical>
-                    <div className={b('container-layout', { background: false })}>
-                        <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'marginTop': '15px' }}>
-                            <Rect height="18px" width="40%" />
-                            <div style={{ 'padding': '5px' }}/>
-                            <Rect height="18px" width="40%" />
+                    <div className={b('flex-box')}>
+                        <div className={b('flex-item')}>
+                            <Header title="How do you feel today?"/>
                         </div>
-                        <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'padding': '15px 0px' }}>
-                            <Rect type="black" height="34px" width="80%" />
+                        <div className={b('flex-item')}>
+                            <div className={b('container-layout', { background: false })}>
+                                <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'marginTop': '20px' }}>
+                                    <Rect type="black" height="45px" width="75%" />
+                                </div>
+                                <div style={{ 'padding': '15px 0' }}>
+                                    <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'padding': '5px 0px' }}>
+                                        <Rect height="3.85vmin" width="60%" />
+                                    </div>
+                                    <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'padding': '5px 0px' }}>
+                                        <Rect height="3.85vmin" width="60%" />
+                                    </div>
+                                    <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'padding': '5px 0px' }}>
+                                        <Rect height="3.85vmin" width="60%" />
+                                    </div>
+                                    <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'padding': '5px 0px' }}>
+                                        <Rect height="3.85vmin" width="60%" />
+                                    </div>
+                                    <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'padding': '5px 0px' }}>
+                                        <Rect height="3.85vmin" width="60%" />
+                                    </div>
+                                    <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'padding': '5px 0px' }}>
+                                        <Rect height="3.85vmin" width="60%" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'padding': '15px 0px' }}>
-                            <Rect height="16px" width="75%" />
-                        </div>
-                        <div style={{ 'display': 'flex', 'justifyContent': 'center', 'width': '100%', 'paddingBottom': '20px' }}>
-                            <Rect height="150px" width="80%" />
+                        <div className={b('flex-item')}>
+                            <Footer disabled={true} title="Awaiting"/>
                         </div>
                     </div>
                 </ContainerVertical>

@@ -48,7 +48,7 @@ export default function Playground() {
                         <Body items={config.moods}/>
                     </div>
                     <div className={b('flex-item')}>
-                        <Footer title="Continue"/>
+                        <Footer disabled={false} title="Continue"/>
                     </div>
                 </div>
             </ContainerVertical>

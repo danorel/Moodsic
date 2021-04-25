@@ -1,18 +1,15 @@
 import { timeout } from '../timeoutHelper';
 
 // @ts-ignore
-import mock from './mocks/configMock.json';
+import configMock from './mocks/config.json';
 
-export function serializer(data: any) {
+
+export const serializer = (data: any) => {
     return {
-        config: {
-            aims: data.config.aims,
-            moods: data.config.moods
-        }
-    }
-}
+        config: data.config
+    };
+};
 
-export function fetchConfig() {
+export const fetchConfig = () =>
     timeout(1500)
-        .then(() => serializer({ ...mock }))
-}
+        .then(() => serializer({ ...configMock }))

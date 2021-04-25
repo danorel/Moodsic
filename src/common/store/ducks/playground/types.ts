@@ -1,9 +1,9 @@
 import { ReduxAction } from 'RootRedux';
 import { PlaygroundAim, PlaygroundMood } from 'RootModels';
 
-export const FETCH_CONFIG_REQUEST = '@playground/PLAYGROUND_CONFIG_REQUEST';
-export const FETCH_CONFIG_SUCCESS = '@playground/FETCH_CONFIG_SUCCESS';
-export const FETCH_CONFIG_FAILURE = '@playground/FETCH_CONFIG_FAILURE';
+export const FETCH_CONFIG_REQUEST = '@@playground/PLAYGROUND_CONFIG_REQUEST';
+export const FETCH_CONFIG_SUCCESS = '@@playground/FETCH_CONFIG_SUCCESS';
+export const FETCH_CONFIG_FAILURE = '@@playground/FETCH_CONFIG_FAILURE';
 
 export type FetchConfigData = {
     config: {

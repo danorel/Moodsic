@@ -10,3 +10,15 @@
     width: 100%;
     margin: auto;
 }
+
+.playground-page__container-layout {
+    overflow: scroll;
+    margin: auto;
+    align-self: center;
+    width: 45vmin;
+    height: 50vmin;
+    padding: 5px;
+    background: #F89942;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
