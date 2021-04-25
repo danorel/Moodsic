@@ -1,9 +1,13 @@
 .authentication-page__container-layout {
-    background: #ffd770;
+    background: #fce6b7;
     border-radius: 40px;
     width: 55vmin;
     height: 45vmin;
     padding: 15px;
+
+    &_background {
+        background: #ffd770;
+    }
 }
 
 .authentication-page__grid-box-layout {

@@ -14,7 +14,7 @@ import './Authentication.css';
 
 import {
     Container,
-    ContainerVertical
+    ContainerVertical, Rect,
 } from 'client/components';
 
 const b = bem.with('authentication-page');
@@ -53,7 +53,7 @@ export default function Authentication() {
         <React.Fragment>
             <Container>
                 <ContainerVertical>
-                    <div className={b('container-layout')}>
+                    <div className={b('container-layout', { background: true })}>
                         <div className={b('grid-box-layout')}>
                             <div className={b('grid-item-layout')}>
                                 <TabsComponent switching={switching} onChange={onChangeSwitching} />

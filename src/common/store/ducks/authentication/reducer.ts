@@ -28,7 +28,7 @@ export const initialState: AuthenticationState = {
         switching: true,
         isAuthenticated: false
     },
-    isLoading: false,
+    isLoading: true,
     error: undefined,
 };
 
