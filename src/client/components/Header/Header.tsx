@@ -7,7 +7,7 @@ import './Header.css';
 
 import {
     HeaderAuthorizedMenu,
-    // HeaderNonAuthorizedMenu
+    HeaderNonAuthorizedMenu,
 } from './Header.menu';
 
 const preloadPage = (pageName: string) =>
@@ -23,12 +23,16 @@ type HeaderProps = {
 
 
 function Header({ type }: HeaderProps) {
+    const Menu = type === 'non-authorized'
+        ? HeaderNonAuthorizedMenu
+        : HeaderAuthorizedMenu;
+
     return (
-        <div className={b('')}>
+        <div className={b('container')}>
             <div className={b('flex-box')}>
                 <div className={b('flex-item')}>
                     <nav className={b('grid-box', { type })}>
-                        {HeaderAuthorizedMenu.map((data, id: number) => (
+                        {Menu.map((data, id: number) => (
                             <div key={id} className={b('grid-item')}>
                                 {data.complex
                                     ?  <NavLink
@@ -54,7 +58,7 @@ function Header({ type }: HeaderProps) {
 }
 
 Header.defaultProps = {
-    type: 'non-authorized',
+    type: 'authorized',
 };
 
 export { Header };

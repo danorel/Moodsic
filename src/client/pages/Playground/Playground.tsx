@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Container, ContainerVertical, PageMeta } from 'client/components';
-import './Preferences.css';
+import './Playground.css';
 
-export default function Preferences() {
+export default function Playground() {
     return (
         <Container>
-            <PageMeta title="Preferences..." description="" />
+            <PageMeta title="Playground..." description="" />
             <ContainerVertical>
-                <h2>Preferences...</h2>
+                <h2>Playground...</h2>
             </ContainerVertical>
         </Container>
     );

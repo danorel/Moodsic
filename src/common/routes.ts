@@ -8,7 +8,7 @@ const HomePage = loadable(() => import('client/pages/Home/Home'));
 const NotFoundPage = loadable(() => import('client/pages/404/404'));
 const PlaylistPage = loadable(() => import('client/pages/Playlist/Playlist'));
 const PlaylistsPage = loadable(() => import('client/pages/Playlists/Playlist'));
-const PreferencesPage = loadable(() => import('client/pages/Preferences/Preferences'));
+const PlaygroundPage = loadable(() => import('client/pages/Playground/Playground'));
 const AuthenticationPage = loadable(() => import('client/pages/Authentication/Authentication'));
 
 /**
@@ -35,8 +35,8 @@ export default [
         },
     },
     {
-        path: '/musiclover/:musicloverId/preferences',
-        component: PreferencesPage,
+        path: '/musiclover/:musicloverId/playground',
+        component: PlaygroundPage,
         exact: true,
         fetchData({ dispatch, match }: RouterFetchDataArgs) {
             dispatch(fetchMusicloverRequest());
