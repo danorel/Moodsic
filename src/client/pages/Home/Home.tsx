@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { State } from 'RootState';
-import { PageMeta } from 'client/components';
+import { Meta } from 'client/components';
 import { fetchHomepageRequest } from 'common/store/ducks/homepage/actions';
 import { getHomepage, isLoading } from 'common/store/ducks/homepage/selectors';
 import { HomeStub } from './Home.stub';
@@ -20,7 +20,7 @@ function Home(props: Props) {
 
     return (
         <React.Fragment>
-            <PageMeta title="Home page" description="Buy awesome snickers" />
+            <Meta title="Home page" description="Buy awesome snickers" />
         </React.Fragment>
     );
 }

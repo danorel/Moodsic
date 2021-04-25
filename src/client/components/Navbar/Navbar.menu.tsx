@@ -5,7 +5,7 @@ import './Navbar.css';
 
 import { HeaderMenu } from 'RootComponents';
 
-const b = bem.with('header');
+const b = bem.with('navbar');
 
 /**
  * Components, meant for building the header menu for authorized users.

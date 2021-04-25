@@ -19,7 +19,7 @@ const prepareData = ({ title, description, image }: Props) => {
     };
 };
 
-function PageMeta(props: Props) {
+function Meta(props: Props) {
     const { title, description, image } = prepareData(props);
 
     return (
@@ -41,10 +41,10 @@ function PageMeta(props: Props) {
     );
 }
 
-PageMeta.defaultProps = {
+Meta.defaultProps = {
     title: 'Site',
     description: null,
     image: null,
 };
 
-export { PageMeta };
+export { Meta };

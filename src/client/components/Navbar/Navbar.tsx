@@ -11,9 +11,9 @@ import {
 } from './Navbar.menu';
 
 const preloadPage = (pageName: string) =>
-    loadable(() => import(`../../../pages/${pageName}/${pageName}`));
+    loadable(() => import(`../../pages/${pageName}/${pageName}`));
 
-const b = bem.with('header');
+const b = bem.with('navbar');
 
 type HeaderProps = {
     type?:
