@@ -70,12 +70,10 @@ export default produce(
                     ...draft.data,
                     ...action.payload
                 }
-                draft.isLoading = false;
                 draft.error = undefined;
                 return;
             case FETCH_SUBMISSION_FAILURE:
                 draft.data = initialState.data;
-                draft.isLoading = false;
                 draft.error = action.payload;
                 return;
         }

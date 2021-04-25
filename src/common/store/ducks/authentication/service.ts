@@ -12,7 +12,7 @@ export const serializer = (data: any) => {
 
 // Emulate api request
 export const fetchSubmission = () =>
-    timeout(500)
+    timeout(2000)
         .then(() => serializer({ ...submissionMock }));
 
 export const fetchAuthentication = () =>

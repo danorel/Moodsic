@@ -1,7 +1,7 @@
 export { App } from './App/App';
 
 export { PageMeta } from './PageMeta/PageMeta';
-export { Header } from './Header/Header';
+export { Navbar } from './Header/Navbar/Navbar';
 export { Footer } from './Footer/Footer';
 
 export { Container } from './Layout/Container/Container';

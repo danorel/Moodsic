@@ -3,15 +3,15 @@ import { NavLink } from 'react-router-dom';
 import * as bem from 'b_';
 import loadable from '@loadable/component';
 
-import './Header.css';
+import './Navbar.css';
 
 import {
     HeaderAuthorizedMenu,
     HeaderNonAuthorizedMenu,
-} from './Header.menu';
+} from './Navbar.menu';
 
 const preloadPage = (pageName: string) =>
-    loadable(() => import(`../../pages/${pageName}/${pageName}`));
+    loadable(() => import(`../../../pages/${pageName}/${pageName}`));
 
 const b = bem.with('header');
 
@@ -22,7 +22,7 @@ type HeaderProps = {
 };
 
 
-function Header({ type }: HeaderProps) {
+function Navbar({ type }: HeaderProps) {
     const Menu = type === 'non-authorized'
         ? HeaderNonAuthorizedMenu
         : HeaderAuthorizedMenu;
@@ -57,8 +57,8 @@ function Header({ type }: HeaderProps) {
     );
 }
 
-Header.defaultProps = {
+Navbar.defaultProps = {
     type: 'authorized',
 };
 
-export { Header };
+export { Navbar };

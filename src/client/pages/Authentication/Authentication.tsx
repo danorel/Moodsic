@@ -14,7 +14,7 @@ import './Authentication.css';
 
 import {
     Container,
-    ContainerVertical, Rect,
+    ContainerVertical,
 } from 'client/components';
 
 const b = bem.with('authentication-page');
@@ -44,7 +44,7 @@ export default function Authentication() {
 
     React.useEffect(() => {
         if (isAuthenticated)
-            history.push("/");
+            history.push("/musiclover/1/playground");
     }, [isAuthenticated])
 
     if (isLoading) return <AuthenticationStub/>;

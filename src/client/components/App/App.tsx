@@ -5,12 +5,12 @@ import routes from 'common/routes';
 
 import './App.css';
 
-import { Header, Footer } from 'client/components/index';
+import { Navbar, Footer } from 'client/components';
 
 function App() {
     return (
         <div className="app">
-            <Header/>
+            <Navbar/>
             <React.Fragment>
                 <Switch>
                     {routes.map(({ fetchData, ...routeProps }) => (

@@ -1,5 +1,5 @@
-@import '../../styles/media.css';
-@import '../../styles/constants.css';
+@import '../../../styles/media.css';
+@import '../../../styles/constants.css';
 
 .header {
     top: 0;
@@ -78,7 +78,7 @@
         width: 11.5vmin;
         height: 11.5vmin;
         align-self: center;
-        background-image: url("./logo.svg");
+        background-image: url("../../../../../static/assets/logo.svg");
         background-repeat: no-repeat;
         background-size: 100% auto;
         background-position: center;
