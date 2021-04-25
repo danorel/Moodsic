@@ -8,7 +8,7 @@
 }
 
 .authentication-form__flex-item {
-    width: 100%;
+    width: 45vmin;
     padding: 5px;
     display: flex;
     justify-content: center;
@@ -35,4 +35,12 @@
 
 .authentication-form__button {
     background: #f4900c;
+
+    &:hover {
+        color: #e6e6e6;
+    }
+
+    &:active {
+        background: #f1a74d;
+    }
 }

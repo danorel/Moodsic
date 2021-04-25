@@ -10,10 +10,19 @@
     font-weight: 500;
     font-size: 3.5vmin;
     color: $font-color;
+
+    &:hover {
+        color: $font-color-hover;
+    }
 }
 
 .authentication-tabs__tab-divider {
-    border: 1vmin solid $font-color;
+    margin: 2px;
+    border: 2px solid $font-color;
+
+    &:hover {
+        color: $font-color-hover;
+    }
 }
 
 .authentication-tabs__flex-box {

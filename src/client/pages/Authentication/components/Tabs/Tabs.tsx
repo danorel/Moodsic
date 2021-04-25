@@ -21,15 +21,16 @@ function TabDivider({ active }: TabDividerProps) {
 
 type TabProps = {
     name: string;
-    className: string;
+    action: boolean;
     active: AuthenticationSwitching;
+    className: string;
     onChange: (switching: AuthenticationSwitching) => void;
 };
 
-function TabComponent({ name, className, active, onChange }: TabProps) {
+function TabComponent({ name, className, active, action, onChange }: TabProps) {
     return (
         <React.Fragment>
-            <div className={className} onClick={() => onChange(!active)}>
+            <div className={className} onClick={() => onChange(action)}>
                 {name}
             </div>
             <TabDivider active={active} />
@@ -51,6 +52,7 @@ export function TabsComponent(props: TabsProps) {
                     <div className={b('flex-item')}>
                         <TabComponent
                             name={'Sign in'}
+                            action={true}
                             className={b('tab-item')}
                             active={props.switching}
                             onChange={props.onChange} />
@@ -58,8 +60,9 @@ export function TabsComponent(props: TabsProps) {
                     <div className={b('flex-item')}>
                         <TabComponent
                             name={'Sign up'}
-                            className={b('tab-item')}
+                            action={false}
                             active={!props.switching}
+                            className={b('tab-item')}
                             onChange={props.onChange} />
                     </div>
                 </div>
