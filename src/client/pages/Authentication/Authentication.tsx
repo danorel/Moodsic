@@ -3,14 +3,12 @@ import * as bem from 'b_';
 import { useHistory } from "react-router-dom";
 import queryString from "query-string";
 
-import { Grid } from '@material-ui/core';
-
 import { AuthenticationStub } from './Authentication.stub';
 import { useAuthentication } from './Authentication.hook';
 
-import { TabsComponent } from './components/Tabs';
-import { FormComponent } from './components/Form';
-import { TitleComponent } from './components/Title';
+import { FormComponent } from './components/Form/Form';
+import { TabsComponent } from './components/Tabs/Tabs';
+import { TitleComponent } from './components/Title/Title';
 
 import './Authentication.css';
 
@@ -55,22 +53,26 @@ export default function Authentication() {
         <React.Fragment>
             <Container>
                 <ContainerVertical>
-                    <div className={b('div-frame')}>
-                        <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
-                            <Grid item>
+                    <div className={b('container-layout')}>
+                        <div className={b('grid-box-layout')}>
+                            <div className={b('grid-item-layout')}>
                                 <TabsComponent switching={switching} onChange={onChangeSwitching} />
-                            </Grid>
-                            <Grid item>
-                                <TitleComponent switching={switching} />
-                            </Grid>
-                            <Grid item>
-                                <FormComponent
-                                    value={email}
-                                    switching={switching}
-                                    onSubmit={fetchSubmission}
-                                    onChange={onChangeEmail} />
-                            </Grid>
-                        </Grid>
+                            </div>
+                            <div className={b('grid-item-layout')}>
+                                <div className={b('flex-box-form')}>
+                                    <div className={b('flex-item-form')}>
+                                        <TitleComponent switching={switching} />
+                                    </div>
+                                    <div className={b('flex-item-form')}>
+                                        <FormComponent
+                                            value={email}
+                                            switching={switching}
+                                            onSubmit={fetchSubmission}
+                                            onChange={onChangeEmail} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </ContainerVertical>
             </Container>

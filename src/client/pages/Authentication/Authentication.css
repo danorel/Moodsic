@@ -1,14 +1,32 @@
-.authentication-page__div-background {
-    min-height: 100vh;
-    min-width: 100vw;
-    text-align: center;
-    position: relative;
-    background: linear-gradient(180deg, #ffffff 0%, #ffffff 20.31%, rgba(255, 255, 255, 0) 100%), #d1f7ff;
-}
-
-.authentication-page__div-frame {
+.authentication-page__container-layout {
     background: #ffd770;
     border-radius: 40px;
-    width: 480px;
+    width: 55vmin;
+    height: 45vmin;
     padding: 15px;
+}
+
+.authentication-page__grid-box-layout {
+    height: 100%;
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-template-columns: auto;
+    grid-template-rows: 25% auto;
+}
+
+.authentication-page__grid-item-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authentication-page__flex-box-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.authentication-page__flex-item-form {
+    width: 100%;
 }

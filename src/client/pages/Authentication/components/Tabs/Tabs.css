@@ -1,33 +1,26 @@
-.authentication-page-tabs__div-tab {
-    width: 100%;
+@import '~styles/constants.css';
+
+.authentication-tabs__tab {
 }
 
-.authentication-page-tabs__div-tab-divider {
-    border: 3px solid #1a3b70;
-}
-
-.authentication-page-tabs__div-tab-sign-up {
-    font-family: Montserrat;
+.authentication-tabs__tab-item {
+    font-family: $font-family;
     font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 37px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    color: #1a3b70;
+    font-weight: 500;
+    font-size: 3.5vmin;
+    color: $font-color;
 }
 
-.authentication-page-tabs__div-tab-sign-in {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 37px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+.authentication-tabs__tab-divider {
+    border: 1vmin solid $font-color;
+}
 
-    color: #1a3b70;
+.authentication-tabs__flex-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.authentication-tabs__flex-item {
+    padding: 10px;
 }

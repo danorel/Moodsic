@@ -6,10 +6,18 @@ const postcssImportAliasResolver = require('postcss-import-alias-resolver');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const cssnano = require('cssnano');
 
-const { IS_DEV } = require('../env');
+const ResolverFactory = require('enhanced-resolve/lib/ResolverFactory');
+const NodeJsInputFileSystem = require('enhanced-resolve/lib/NodeJsInputFileSystem');
+const CachedInputFileSystem = require('enhanced-resolve/lib/CachedInputFileSystem');
+
+const CACHED_DURATION = 60000;
+const fileSystem = new CachedInputFileSystem(new NodeJsInputFileSystem(), CACHED_DURATION);
+
+
+const { IS_DEV, SRC_DIR } = require('../env');
 
 const resolverOptions = {
-    alias: { styles: path.resolve('src/client/styles') },
+    alias: { styles: path.resolve(SRC_DIR, 'client', 'styles') },
     mergeExtensions: 'extend',
 };
 

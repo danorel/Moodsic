@@ -1,39 +1,32 @@
 import React from 'react';
 import * as bem from 'b_';
 
-import { Grid } from '@material-ui/core';
-
 import './Form.css';
 
 import { AuthenticationEmail, AuthenticationSwitching } from 'RootModels';
 
-const b = bem.with('authentication-page-form');
+const b = bem.with('authentication-form');
 
-interface FormViewProps {
+interface FormProps {
     value: string;
     switching: AuthenticationSwitching;
     onSubmit: () => void;
     onChange: (value: AuthenticationEmail) => void;
 }
 
-export function FormComponent({ value, switching, onSubmit, onChange }: FormViewProps) {
+export function FormComponent({ value, switching, onSubmit, onChange }: FormProps) {
     return (
         <React.Fragment>
-            <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
-                <Grid
-                    item
-                    xs={12} sm={12} md={12} lg={12} xl={12}
-                    className={b("grid-item")}>
+            <div className={b('flex-box')}>
+                <div className={b("flex-item")}>
                     <input className={b('input')} value={value} placeholder={'Pass e-mail...'} onChange={e => onChange(e.target.value)} />
-                </Grid>
-                <Grid item
-                      xs={12} sm={12} md={12} lg={12} xl={12}
-                      className={b("grid-item")}>
+                </div>
+                <div className={b("flex-item")}>
                     <button className={b('button')} onClick={onSubmit}>
                         {switching ? "Let's go!" : 'Register me!'}
                     </button>
-                </Grid>
-            </Grid>
+                </div>
+            </div>
         </React.Fragment>
     );
 }
