@@ -1,39 +1,43 @@
 import produce, { Draft } from 'immer';
 
 import {
-    PlaylistActionTypes,
-    FETCH_PLAYLIST_REQUEST,
-    FETCH_PLAYLIST_FAILURE,
-    FETCH_PLAYLIST_SUCCESS,
+    PlaylistsActionTypes,
+    FETCH_PLAYLISTS_REQUEST,
+    FETCH_PLAYLISTS_FAILURE,
+    FETCH_PLAYLISTS_SUCCESS,
 } from './types';
 
 import { Playlist } from 'RootModels';
 
-export interface PlaylistState {
-    readonly data?: Playlist;
+export interface PlaylistsState {
+    readonly data: Playlist[];
     readonly isLoading: boolean;
     readonly error?: string;
 }
 
-export const initialState: PlaylistState = {
-    data: undefined,
+export const initialState: PlaylistsState = {
+    data: [],
     isLoading: false,
     error: undefined,
 };
 
 export default produce(
-    (draft: Draft<PlaylistState> = initialState, action: PlaylistActionTypes) => {
+    (draft: Draft<PlaylistsState> = initialState, action: PlaylistsActionTypes) => {
         switch (action.type) {
-            case FETCH_PLAYLIST_REQUEST:
+            case FETCH_PLAYLISTS_REQUEST:
+                console.log("FETCH_PLAYLISTS_REQUEST");
                 draft.isLoading = true;
                 draft.error = undefined;
                 return;
-            case FETCH_PLAYLIST_SUCCESS:
+            case FETCH_PLAYLISTS_SUCCESS:
+                console.log("FETCH_PLAYLISTS_SUCCESS");
+                console.log(action.payload);
                 draft.data = action.payload;
                 draft.isLoading = false;
                 draft.error = undefined;
                 return;
-            case FETCH_PLAYLIST_FAILURE:
+            case FETCH_PLAYLISTS_FAILURE:
+                console.log("FETCH_PLAYLISTS_FAILURE");
                 draft.data = initialState.data;
                 draft.isLoading = false;
                 draft.error = action.payload;

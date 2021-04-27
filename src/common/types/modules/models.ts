@@ -69,22 +69,19 @@ declare module 'RootModels' {
      *    - name
      *    - aim
      *    - mood
-     *    - weather
      *    - songs
      */
 
     export type PlaylistId = string;
-    export type PlaylistName = string;
+    export type PlaylistTitle = string;
     export type PlaylistAim = string;
     export type PlaylistMood = string;
-    export type PlaylistWeather = string;
 
     export type Playlist = {
         id: PlaylistId;
-        name: PlaylistName;
-        aim: PlaylistAim[];
+        title: PlaylistTitle;
+        aim: PlaylistAim;
         mood: PlaylistMood[];
-        weather: PlaylistWeather;
         songs: Song[];
     };
 }

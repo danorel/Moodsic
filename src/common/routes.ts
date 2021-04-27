@@ -1,13 +1,12 @@
 import loadable from '@loadable/component';
 import { fetchMusicloverRequest } from 'common/store/ducks/musiclover/actions';
 import { fetchHomepageRequest } from 'common/store/ducks/homepage/actions';
-import { fetchPlaylistRequest } from 'common/store/ducks/playlist/actions';
 import { RouterFetchDataArgs } from 'RootRouter';
 
 const HomePage = loadable(() => import('client/pages/Home/Home'));
 const NotFoundPage = loadable(() => import('client/pages/404/404'));
 const PlaylistPage = loadable(() => import('client/pages/Playlist/Playlist'));
-const PlaylistsPage = loadable(() => import('client/pages/Playlists/Playlist'));
+const PlaylistsPage = loadable(() => import('client/pages/Playlists/Playlists'));
 const PlaygroundPage = loadable(() => import('client/pages/Playground/Playground'));
 const AuthenticationPage = loadable(() => import('client/pages/Authentication/Authentication'));
 
