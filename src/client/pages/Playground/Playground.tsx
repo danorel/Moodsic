@@ -18,12 +18,14 @@ export default function Playground() {
     const history = useHistory();
 
     const {
+        step,
         config,
         musiclover,
         isLoading,
         isComplete,
         fetchItem,
         fetchConfig,
+        fetchSubmission
     } = usePlayground();
 
     React.useEffect(() => {
@@ -47,10 +49,12 @@ export default function Playground() {
                         <Header title="How do you feel today?"/>
                     </div>
                     <div className={b('flex-item')}>
-                        <Body options={musiclover.moods} items={config.moods} onClick={fetchItem}/>
+                        {step === 0
+                            ? <Body options={musiclover.moods} items={config.moods} onClick={fetchItem}/>
+                            : <Body options={musiclover.aims} items={config.aims} onClick={fetchItem}/>}
                     </div>
                     <div className={b('flex-item')}>
-                        <Footer disabled={false} title="Continue"/>
+                        <Footer disabled={false} title="Continue" onClick={fetchSubmission} />
                     </div>
                 </div>
             </ContainerVertical>

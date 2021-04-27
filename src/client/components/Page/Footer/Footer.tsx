@@ -7,13 +7,14 @@ const b = bem.with('page-footer');
 
 type ButtonProps = {
     title: string;
+    onClick: () => void;
     disabled?: boolean;
 };
 
-function Button({ title, disabled }: ButtonProps) {
+function Button({ title, disabled, onClick }: ButtonProps) {
     return (
         <React.Fragment>
-            <button className={b('button', { disabled })}>
+            <button className={b('button', { disabled })} onClick={onClick}>
                 <div className={b('span', { disabled })}>{title}</div>
             </button>
         </React.Fragment>
@@ -27,14 +28,15 @@ Button.defaultProps = {
 
 type FooterProps = {
     title: string;
-    disabled?: boolean
+    disabled?: boolean;
+    onClick: () => void;
 };
 
-function Footer({ title, disabled }: FooterProps) {
+function Footer({ title, disabled, onClick }: FooterProps) {
     return (
         <React.Fragment>
             <div className={b('container')}>
-                <Button disabled={disabled} title={title} />
+                <Button disabled={disabled} title={title} onClick={onClick} />
             </div>
         </React.Fragment>
     );

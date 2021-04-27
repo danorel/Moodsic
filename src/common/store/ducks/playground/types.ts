@@ -8,8 +8,6 @@ export const FETCH_CONFIG_SUCCESS = '@@playground/FETCH_CONFIG_SUCCESS';
 export const FETCH_CONFIG_FAILURE = '@@playground/FETCH_CONFIG_FAILURE';
 
 export const FETCH_SUBMISSION_REQUEST = '@@playground/FETCH_SUBMISSION_REQUEST';
-export const FETCH_SUBMISSION_SUCCESS = '@@playground/FETCH_SUBMISSION_SUCCESS';
-export const FETCH_SUBMISSION_FAILURE = '@@playground/FETCH_SUBMISSION_FAILURE';
 
 /*
  * User action types meant for making a choose of some item.
@@ -42,22 +40,11 @@ export type FetchConfigFailureAction = ReduxAction<
 >;
 
 /*
- * Action types meant for fetching the submission of the step from the server.
+ * Action types meant for fetching the submission of the step from the clients.
  */
 
-export type FetchSubmissionData = {
-    ok: true;
-};
-
 export type FetchSubmissionRequestAction = ReduxAction<typeof FETCH_SUBMISSION_REQUEST>
-export type FetchSubmissionSuccessAction = ReduxAction<
-    typeof FETCH_SUBMISSION_SUCCESS,
-    FetchSubmissionData
->
-export type FetchSubmissionFailureAction = ReduxAction<
-    typeof FETCH_SUBMISSION_FAILURE,
-    string
->
+
 
 export type ConfigActionTypes =
     | FetchItemRequestAction
@@ -65,5 +52,3 @@ export type ConfigActionTypes =
     | FetchConfigSuccessAction
     | FetchConfigFailureAction
     | FetchSubmissionRequestAction
-    | FetchSubmissionSuccessAction
-    | FetchSubmissionFailureAction

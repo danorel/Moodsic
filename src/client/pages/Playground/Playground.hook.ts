@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PlaygroundAim, PlaygroundMood } from 'RootModels';
 
 import {
+    selectStep as stepSelector,
     selectConfig as configSelector,
     selectMusiclover as musicloverSelector,
     selectLoading as isLoadingSelector,
@@ -12,11 +13,14 @@ import {
 
 import {
     fetchItemRequest as fetchItemRequestCreator,
-    fetchConfigRequest as fetchConfigRequestCreator
+    fetchConfigRequest as fetchConfigRequestCreator,
+    fetchSubmissionRequest as fetchSubmissionRequestCreator
 } from 'common/store/ducks/playground/actions'
 
 export function usePlayground() {
     const dispatch = useDispatch();
+
+    const step = useSelector(stepSelector);
 
     const config = useSelector(configSelector);
     const musiclover = useSelector(musicloverSelector);
@@ -34,12 +38,19 @@ export function usePlayground() {
         [dispatch]
     );
 
+    const fetchSubmission = React.useCallback(
+        () => dispatch(fetchSubmissionRequestCreator()),
+        [dispatch]
+    );
+
     return {
+        step,
         config,
         musiclover,
         isLoading,
         isComplete,
         fetchItem,
-        fetchConfig
+        fetchConfig,
+        fetchSubmission,
     };
 }

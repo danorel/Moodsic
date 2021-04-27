@@ -8,9 +8,7 @@ import {
     FETCH_CONFIG_FAILURE,
     FETCH_CONFIG_REQUEST,
     FETCH_CONFIG_SUCCESS,
-    FETCH_SUBMISSION_FAILURE,
     FETCH_SUBMISSION_REQUEST,
-    FETCH_SUBMISSION_SUCCESS,
 } from './types';
 
 export interface PlaygroundState {
@@ -97,13 +95,8 @@ export default produce(
              * Step submission data manipulations.
              */
             case FETCH_SUBMISSION_REQUEST:
-                return;
-            case FETCH_SUBMISSION_SUCCESS:
                 draft.step += 1;
                 if (draft.step === 3) draft.isComplete = true;
-                return;
-            case FETCH_SUBMISSION_FAILURE:
-                draft.error = action.payload;
                 return;
         }
         return draft;
