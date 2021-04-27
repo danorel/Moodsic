@@ -6,10 +6,8 @@ import { timeout } from '../timeoutHelper';
 import mock from './mocks/mock.json';
 
 export const serializer = (data: any) => {
-    return {
-        playlists: data.playlists,
-        musicloverId: data.musicloverId,
-    };
+    console.log(data);
+    return data.playlists;
 };
 
 // Emulate api request

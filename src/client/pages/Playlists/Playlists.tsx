@@ -26,7 +26,7 @@ function PlaylistsPage() {
             />
             <ContainerVertical>
                 <h2>Playlists</h2>
-                {/*{playlists.map(playlist => playlist.title)}*/}
+                {playlists.map(playlist => playlist.title)}
             </ContainerVertical>
         </Container>
     );

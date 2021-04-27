@@ -1,3 +1,4 @@
+
 declare module 'RootState' {
     import { RouterState } from 'connected-react-router';
     import { HomepageState } from 'common/store/ducks/homepage/reducer';

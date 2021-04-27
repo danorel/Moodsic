@@ -30,7 +30,7 @@ export interface PlaygroundState {
     readonly error?: string;
 }
 
-const initialState: PlaygroundState = {
+export const initialState: PlaygroundState = {
     step: 0,
     title: '',
     data: {
