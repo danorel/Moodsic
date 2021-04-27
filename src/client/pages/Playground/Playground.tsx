@@ -2,11 +2,18 @@ import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 import * as bem from 'b_';
 
+import {
+    PlaygroundAim,
+    PlaygroundConfig, PlaygroundMood,
+    PlaygroundMusiclover,
+} from 'RootModels';
+
 import './Playground.css';
 
 import { Header } from '../../components/Page/Header/Header';
 import { Container, ContainerVertical, Meta } from 'client/components';
-import { Body } from '../../components/Page/Body/Body';
+import { BodyName } from '../../components/Page/Body/BodyName/BodyName';
+import { BodyItems } from '../../components/Page/Body/BodyItems/BodyItems';
 import { Footer } from '../../components/Page/Footer/Footer';
 
 import { usePlayground } from './Playground.hook';
@@ -14,16 +21,42 @@ import { PlaygroundStub } from './Playground.stub';
 
 const b = bem.with('playground-page');
 
+const PlaygroundBodyStepper = (name: string,
+                               musiclover: PlaygroundMusiclover,
+                               config: PlaygroundConfig,
+                               fetchItem: (item: (PlaygroundAim | PlaygroundMood)) => void,
+                               fetchTitle: (title: string) => void): React.ReactNode[] => {
+    return [
+        <BodyItems
+            title={"Choose your mood"}
+            items={config.moods}
+            options={musiclover.moods}
+            onClick={fetchItem}/>,
+        <BodyItems
+            title={"Choose your aim"}
+            items={config.aims}
+            options={musiclover.aims}
+            onClick={fetchItem}/>,
+        <BodyName
+            title={"Give a name to your playlist:"}
+            description={"It could not be changed in future!"}
+            value={name}
+            onChange={fetchTitle}/>
+    ];
+}
+
 export default function Playground() {
     const history = useHistory();
 
     const {
         step,
+        title,
         config,
         musiclover,
         isLoading,
         isComplete,
         fetchItem,
+        fetchTitle,
         fetchConfig,
         fetchSubmission
     } = usePlayground();
@@ -49,9 +82,7 @@ export default function Playground() {
                         <Header title="How do you feel today?"/>
                     </div>
                     <div className={b('flex-item')}>
-                        {step === 0
-                            ? <Body options={musiclover.moods} items={config.moods} onClick={fetchItem}/>
-                            : <Body options={musiclover.aims} items={config.aims} onClick={fetchItem}/>}
+                        {PlaygroundBodyStepper(title, musiclover, config, fetchItem, fetchTitle)[step]}
                     </div>
                     <div className={b('flex-item')}>
                         <Footer disabled={false} title="Continue" onClick={fetchSubmission} />

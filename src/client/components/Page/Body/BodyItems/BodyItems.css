@@ -1,4 +1,4 @@
-@import "../../../styles/constants.css";
+@import "src/client/styles/constants.css";
 
 .page-body__container {
     overflow: scroll;

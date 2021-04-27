@@ -5,6 +5,7 @@ import { PlaygroundAim, PlaygroundMood } from 'RootModels';
 
 import {
     selectStep as stepSelector,
+    selectTitle as titleSelector,
     selectConfig as configSelector,
     selectMusiclover as musicloverSelector,
     selectLoading as isLoadingSelector,
@@ -13,15 +14,17 @@ import {
 
 import {
     fetchItemRequest as fetchItemRequestCreator,
+    fetchTitleRequest as fetchTitleRequestCreator,
     fetchConfigRequest as fetchConfigRequestCreator,
-    fetchSubmissionRequest as fetchSubmissionRequestCreator
-} from 'common/store/ducks/playground/actions'
+    fetchSubmissionRequest as fetchSubmissionRequestCreator,
+} from 'common/store/ducks/playground/actions';
 
 export function usePlayground() {
     const dispatch = useDispatch();
 
     const step = useSelector(stepSelector);
 
+    const title = useSelector(titleSelector);
     const config = useSelector(configSelector);
     const musiclover = useSelector(musicloverSelector);
 
@@ -30,6 +33,11 @@ export function usePlayground() {
 
     const fetchItem = React.useCallback(
         (item: (PlaygroundAim | PlaygroundMood)) => dispatch(fetchItemRequestCreator(item)),
+        [dispatch]
+    )
+
+    const fetchTitle = React.useCallback(
+        (title: string) => dispatch(fetchTitleRequestCreator(title)),
         [dispatch]
     )
 
@@ -45,11 +53,13 @@ export function usePlayground() {
 
     return {
         step,
+        title,
         config,
         musiclover,
         isLoading,
         isComplete,
         fetchItem,
+        fetchTitle,
         fetchConfig,
         fetchSubmission,
     };

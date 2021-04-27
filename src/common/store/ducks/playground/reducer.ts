@@ -5,6 +5,7 @@ import { PlaygroundAim, PlaygroundMood } from 'RootModels';
 import {
     ConfigActionTypes,
     FETCH_ITEM_REQUEST,
+    FETCH_TITLE_REQUEST,
     FETCH_CONFIG_FAILURE,
     FETCH_CONFIG_REQUEST,
     FETCH_CONFIG_SUCCESS,
@@ -23,6 +24,7 @@ export interface PlaygroundState {
             moods: PlaygroundMood[]
         }
     },
+    readonly title: string;
     readonly isComplete: boolean;
     readonly isLoading: boolean;
     readonly error?: string;
@@ -30,6 +32,7 @@ export interface PlaygroundState {
 
 const initialState: PlaygroundState = {
     step: 0,
+    title: '',
     data: {
         config: {
             aims: [],
@@ -70,6 +73,9 @@ export default produce(
                         draft.data.musiclover.aims = itemAppender(draft.data.musiclover.aims, action.payload);
                         break;
                 }
+                return;
+            case FETCH_TITLE_REQUEST:
+                draft.title = action.payload;
                 return;
             /*
              * Config-driven data manipulations.

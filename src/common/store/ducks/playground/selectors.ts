@@ -4,6 +4,10 @@ export function selectStep(state: State) {
     return state.playground.step;
 }
 
+export function selectTitle(state: State) {
+    return state.playground.title;
+}
+
 export function selectConfig(state: State) {
     return state.playground.data.config;
 }

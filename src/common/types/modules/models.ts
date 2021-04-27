@@ -21,6 +21,13 @@ declare module 'RootModels' {
      *       }
      */
 
+    export type PlaygroundMusiclover = {
+        aims: PlaygroundAim[],
+        moods: PlaygroundMood[]
+    }
+
+    export type PlaygroundConfig = PlaygroundMusiclover;
+
     export type PlaygroundAim = {
         id: number,
         title: string;

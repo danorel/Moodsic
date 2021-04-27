@@ -5,6 +5,10 @@ export function fetchItemRequest(item: (PlaygroundAim | PlaygroundMood)): types.
     return { type: types.FETCH_ITEM_REQUEST, payload: item };
 }
 
+export function fetchTitleRequest(title: string): types.FetchTitleRequestAction {
+    return { type: types.FETCH_TITLE_REQUEST, payload: title };
+}
+
 export function fetchSubmissionRequest(): types.FetchSubmissionRequestAction {
     return { type: types.FETCH_SUBMISSION_REQUEST };
 }

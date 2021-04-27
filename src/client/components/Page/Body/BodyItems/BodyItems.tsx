@@ -1,7 +1,7 @@
 import React from 'react';
 import * as bem from 'b_';
 
-import './Body.css';
+import './BodyItems.css';
 
 import { PlaygroundAim, PlaygroundMood } from 'RootModels';
 
@@ -36,19 +36,20 @@ function Item({ title, active }: ItemProps) {
     );
 }
 
-type BodyProps = {
+type BodyItemsProps = {
+    title: string;
     items: (PlaygroundMood | PlaygroundAim)[],
     options: (PlaygroundMood | PlaygroundAim)[],
     onClick: (item: PlaygroundMood | PlaygroundAim) => void;
 }
 
-function Body({ items, options, onClick }: BodyProps) {
+function BodyItems({ title, items, options, onClick }: BodyItemsProps) {
     return (
         <React.Fragment>
-            <div className={b('container')}>
+            <div className={b('container-items')}>
                 <div className={b('grid-box')}>
                     <div className={b('grid-item')}>
-                        <Description title="Choose your mood" />
+                        <Description title={title} />
                     </div>
                     <div className={b('grid-item')}>
                         <div className={b('flex-box')}>
@@ -65,4 +66,4 @@ function Body({ items, options, onClick }: BodyProps) {
     );
 }
 
-export { Body };
+export { BodyItems };
