@@ -1,0 +1,10 @@
+.playlists-body__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.playlists-body__column {
+    display: flex;
+
+}

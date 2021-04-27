@@ -5,6 +5,7 @@
         "noImplicitAny": true,
         "noImplicitThis": true,
         "resolveJsonModule": true,
+        "downlevelIteration": true,
         "allowSyntheticDefaultImports": true,
         "module": "commonjs",
         "target": "es5",
