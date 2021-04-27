@@ -22,10 +22,12 @@ declare module 'RootModels' {
      */
 
     export type PlaygroundAim = {
+        id: number,
         title: string;
     }
 
     export type PlaygroundMood = {
+        id: number,
         title: string;
     }
 

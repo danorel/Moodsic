@@ -23,12 +23,13 @@ function Description({ title }: DescriptionProps) {
 
 type ItemProps = {
     title: string;
+    active: boolean;
 }
 
-function Item({ title }: ItemProps) {
+function Item({ title, active }: ItemProps) {
     return (
         <React.Fragment>
-            <div className={b('item-container')}>
+            <div className={b('item-container', { active })}>
                 <span className={b('item-span')}>{title}</span>
             </div>
         </React.Fragment>
@@ -36,10 +37,12 @@ function Item({ title }: ItemProps) {
 }
 
 type BodyProps = {
-    items: (PlaygroundMood | PlaygroundAim)[]
+    items: (PlaygroundMood | PlaygroundAim)[],
+    options: (PlaygroundMood | PlaygroundAim)[],
+    onClick: (item: PlaygroundMood | PlaygroundAim) => void;
 }
 
-function Body({ items }: BodyProps) {
+function Body({ items, options, onClick }: BodyProps) {
     return (
         <React.Fragment>
             <div className={b('container')}>
@@ -50,8 +53,8 @@ function Body({ items }: BodyProps) {
                     <div className={b('grid-item')}>
                         <div className={b('flex-box')}>
                             {items.map(itemProps => (
-                                <div className={b('flex-item')}>
-                                    <Item {...itemProps}/>
+                                <div onClick={() => onClick({...itemProps})} className={b('flex-item')}>
+                                    <Item {...itemProps} active={options.map(option => option.id).includes(itemProps.id)} />
                                 </div>
                             ))}
                         </div>

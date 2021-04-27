@@ -19,9 +19,11 @@ export default function Playground() {
 
     const {
         config,
+        musiclover,
         isLoading,
         isComplete,
-        fetchConfig
+        fetchItem,
+        fetchConfig,
     } = usePlayground();
 
     React.useEffect(() => {
@@ -45,7 +47,7 @@ export default function Playground() {
                         <Header title="How do you feel today?"/>
                     </div>
                     <div className={b('flex-item')}>
-                        <Body items={config.moods}/>
+                        <Body options={musiclover.moods} items={config.moods} onClick={fetchItem}/>
                     </div>
                     <div className={b('flex-item')}>
                         <Footer disabled={false} title="Continue"/>
