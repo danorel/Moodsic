@@ -38,9 +38,9 @@ const PlaygroundBodyStepper = (name: string,
             options={musiclover.aims}
             onClick={fetchItem}/>,
         <BodyName
-            title={"Give a name to your playlist:"}
-            description={"It could not be changed in future!"}
             value={name}
+            title={"Give a name to your playlist"}
+            subtitle={"It could not be changed in future!"}
             onChange={fetchTitle}/>
     ];
 }

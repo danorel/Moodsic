@@ -3,21 +3,27 @@ import * as bem from 'b_';
 
 import './BodyName.css';
 
-const b = bem.with('page-body');
+const b = bem.with('body-name');
 
 type DescriptionProps = {
     title: string;
-    description: string;
+    subtitle: string;
 }
 
-function Description({ title, description }: DescriptionProps) {
+function Description({ title, subtitle }: DescriptionProps) {
     return (
         <React.Fragment>
-            <div className={b('title')}>
-                {title}
-            </div>
-            <div className={b('description')}>
-                {description}
+            <div className={b('description-flex-box')}>
+                <div className={b('description-flex-item')}>
+                    <div className={b('description-title')}>
+                        {title}
+                    </div>
+                </div>
+                <div className={b('description-flex-item')}>
+                    <div className={b('description-subtitle')}>
+                        {subtitle}
+                    </div>
+                </div>
             </div>
         </React.Fragment>
     );
@@ -34,6 +40,7 @@ function Input({ value, onChange }: ItemProps) {
             <div className={b('input-container')}>
                 <input
                     value={value}
+                    placeholder={"Best songs"}
                     className={b('input-field')}
                     onChange={evt => onChange(evt.target.value)}/>
             </div>
@@ -42,19 +49,19 @@ function Input({ value, onChange }: ItemProps) {
 }
 
 type BodyNameProps = {
-    title: string;
     value: string;
-    description: string;
+    title: string;
+    subtitle: string;
     onChange: (title: string) => void;
 }
 
-function BodyName({ value, title, description, onChange }: BodyNameProps) {
+function BodyName({ value, title, subtitle, onChange }: BodyNameProps) {
     return (
         <React.Fragment>
             <div className={b('container')}>
                 <div className={b('grid-box')}>
                     <div className={b('grid-item')}>
-                        <Description title={title} description={description}/>
+                        <Description title={title} subtitle={subtitle}/>
                     </div>
                     <div className={b('grid-item')}>
                         <div className={b('flex-box')}>

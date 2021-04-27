@@ -5,7 +5,7 @@ import './BodyItems.css';
 
 import { PlaygroundAim, PlaygroundMood } from 'RootModels';
 
-const b = bem.with('page-body');
+const b = bem.with('body-items');
 
 type DescriptionProps = {
     title: string;
@@ -46,7 +46,7 @@ type BodyItemsProps = {
 function BodyItems({ title, items, options, onClick }: BodyItemsProps) {
     return (
         <React.Fragment>
-            <div className={b('container-items')}>
+            <div className={b('container')}>
                 <div className={b('grid-box')}>
                     <div className={b('grid-item')}>
                         <Description title={title} />

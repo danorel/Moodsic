@@ -102,7 +102,10 @@ export default produce(
              */
             case FETCH_SUBMISSION_REQUEST:
                 draft.step += 1;
-                if (draft.step === 3) draft.isComplete = true;
+                if (draft.step === 3) {
+                    draft.isLoading = true;
+                    draft.isComplete = true;
+                }
                 return;
         }
         return draft;

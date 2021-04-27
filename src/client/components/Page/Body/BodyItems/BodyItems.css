@@ -1,6 +1,6 @@
-@import "src/client/styles/constants.css";
+@import "../../../../styles/constants.css";
 
-.page-body__container {
+.body-items__container {
     overflow: scroll;
     margin: auto;
     align-self: center;
@@ -12,7 +12,7 @@
     border-radius: 20px;
 }
 
-.page-body__grid-box {
+.body-items__grid-box {
     width: 100%;
     height: 100%;
     display: grid;
@@ -21,21 +21,21 @@
     grid-auto-columns: auto;
 }
 
-.page-body__grid-item {
+.body-items__grid-item {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
 }
 
-.page-body__flex-box {
+.body-items__flex-box {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
 
-.page-body__flex-item {
+.body-items__flex-item {
     width: 100%;
     height: 100%;
     display: flex;
@@ -43,11 +43,11 @@
     padding: 3px;
 }
 
-.page-body__flex-item:last-child {
+.body-items__flex-item:last-child {
     padding-bottom: 20px;
 }
 
-.page-body__item-container {
+.body-items__item-container {
     width: 80%;
     height: 5.85vmin;
     background: #FFF0CA;
@@ -61,7 +61,7 @@
     }
 }
 
-.page-body__item-span {
+.body-items__item-span {
     width: 100%;
     font-family: $font-family;
     font-style: normal;
@@ -70,7 +70,7 @@
     color: $font-color;
 }
 
-.page-body__description {
+.body-items__description {
     font-family: $font-family;
     font-style: normal;
     font-weight: 500;
