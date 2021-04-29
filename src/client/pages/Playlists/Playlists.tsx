@@ -48,6 +48,7 @@ function PlaylistsPage() {
                         <Bar
                             value={query}
                             active={active}
+                            disabled={false}
                             onClick={fetchActive}
                             onChange={fetchPlaylistsByQuery} />
                     </div>

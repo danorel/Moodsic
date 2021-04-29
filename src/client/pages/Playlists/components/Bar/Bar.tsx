@@ -11,6 +11,7 @@ const b = bem.with('playlists-bar');
 type BarProps = {
     value: string;
     active: boolean,
+    disabled: boolean,
     onClick: (active: boolean) => void;
     onChange: (modified: string) => void;
 }
@@ -18,6 +19,7 @@ type BarProps = {
 function Bar({
                  value,
                  active,
+                 disabled,
                  onClick,
                  onChange,
              }: BarProps) {
@@ -25,10 +27,10 @@ function Bar({
         <React.Fragment>
             <div className={b('grid-box')}>
                 <div className={b('grid-item')}>
-                    <Sort active={active} onClick={onClick} />
+                    <Sort disabled={disabled} active={active} onClick={onClick} />
                 </div>
                 <div className={b('grid-item')}>
-                    <Search value={value} onChange={onChange} />
+                    <Search disabled={disabled} value={value} onChange={onChange} />
                 </div>
             </div>
         </React.Fragment>

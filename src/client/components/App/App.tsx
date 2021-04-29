@@ -10,7 +10,7 @@ import { Navbar, Footer } from 'client/components';
 function App() {
     return (
         <div className="app">
-            <Navbar/>
+            <Navbar type='authorized'/>
             <React.Fragment>
                 <Switch>
                     {routes.map(({ fetchData, ...routeProps }) => (

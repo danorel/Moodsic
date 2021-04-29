@@ -11,23 +11,29 @@ import { collector } from '../../utils/Collector';
 const b = bem.with('playlists-body-card')
 
 type CardTag = {
+    mock?: boolean;
     title: string;
     onClick: (query: string) => void;
 };
 
-function Tag({ title, onClick }: CardTag) {
+function Tag({ title, onClick, mock }: CardTag) {
     return (
         <React.Fragment>
             <button className={b('tag-button')} onClick={() => onClick(title)}>
                 <span className={b('tag-span')}>
-                    {title}
+                    {mock ? '' : title}
                 </span>
             </button>
         </React.Fragment>
     )
 }
 
+Tag.defaultProps = {
+    mock: false
+}
+
 type CardProps = Playlist & {
+    mock: boolean;
     factor: number;
     onClick: (query: string) => void;
 };
@@ -41,12 +47,12 @@ function Card(props: CardProps) {
                     <div className={b('grid-item')}/>
                     <div className={b('grid-item')}>
                         <span className={b('span-title')}>
-                            {props.title}
+                            {props.mock ? '' : props.title}
                         </span>
                     </div>
                     <div className={b('grid-item')}>
                         <span className={b('span-aim')}>
-                            {props.aim.title}
+                            {props.mock ? '' : props.aim.title}
                         </span>
                     </div>
                     <div className={b('grid-item')}>
@@ -58,7 +64,7 @@ function Card(props: CardProps) {
                                             <div className={b('tag-column')}>
                                                 {!tagProps
                                                     ? null
-                                                    : <Tag {...tagProps} onClick={props.onClick}/>}
+                                                    : <Tag {...tagProps} mock={props.mock} onClick={props.onClick}/>}
                                             </div>
                                         ))}
                                     </div>
@@ -67,7 +73,7 @@ function Card(props: CardProps) {
                     </div>
                     <div className={b('grid-item')}>
                         <span className={b('span-date')}>
-                            {props.date.toDateString()}
+                            {props.mock ? '' : props.date.toDateString()}
                         </span>
                     </div>
                 </div>

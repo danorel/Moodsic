@@ -27,7 +27,7 @@ export const initialState: PlaylistsState = {
     sorted: [],
     query: '',
     active: false,
-    isLoading: false,
+    isLoading: true,
     error: undefined,
 };
 
@@ -46,8 +46,8 @@ export default produce(
                 draft.active = !draft.active;
                 return;
             case FETCH_PLAYLISTS_REQUEST:
-                draft.isLoading = true;
                 draft.error = undefined;
+                draft.isLoading = true;
                 return;
             case FETCH_PLAYLISTS_SUCCESS:
                 draft.data = [...action.payload].sort(playlistDateComparator);

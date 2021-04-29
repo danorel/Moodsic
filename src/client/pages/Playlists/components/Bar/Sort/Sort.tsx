@@ -7,13 +7,14 @@ const b = bem.with('playlists-bar-sort');
 
 type SortProps = {
     active: boolean;
+    disabled: boolean;
     onClick: (active: boolean) => void;
 }
 
-function Sort({ active, onClick }: SortProps) {
+function Sort({ active, disabled, onClick }: SortProps) {
     return (
         <React.Fragment>
-            <button className={b('button', { active })} onClick={() => onClick(!active)}>
+            <button className={b('button', { active, disabled })} onClick={() => onClick(!active)}>
                 <span className={b('span')}>
                     {active
                         ? "Sorted by alphabet"

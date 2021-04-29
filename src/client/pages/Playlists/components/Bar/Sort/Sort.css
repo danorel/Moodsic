@@ -11,6 +11,11 @@
         background: #33BF84;
     }
 
+    &_disabled {
+        pointer-events: none;
+        background: #97bead;
+    }
+
     &:active {
         background: #65c3f1;
     }

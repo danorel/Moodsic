@@ -7,13 +7,15 @@ const b = bem.with('playlists-bar-search');
 
 type SearchProps = {
     value: string;
+    disabled: boolean;
     onChange: (modified: string) => void;
 }
 
-function Search({ value, onChange }: SearchProps) {
+function Search({ value, disabled, onChange }: SearchProps) {
     return (
         <React.Fragment>
             <input
+                disabled={disabled}
                 type="text"
                 value={value}
                 placeholder={"Search for..."}
