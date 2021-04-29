@@ -3,7 +3,8 @@ import { MusicloverId } from 'RootModels';
 import { timeout } from '../timeoutHelper';
 
 // @ts-ignore
-import mock from './mocks/mock.json';
+import queryMock from './mocks/queryMock.json';
+import playlistsMock from './mocks/playlistsMock.json';
 
 export const serializer = (data: any) => {
     return data.playlists;
@@ -12,8 +13,8 @@ export const serializer = (data: any) => {
 // Emulate api request
 export const fetchPlaylists = (musicloverId: MusicloverId) =>
     timeout(1500)
-        .then(() => serializer({ ...mock, musicloverId }));
+        .then(() => serializer({ ...playlistsMock, musicloverId }));
 
 export const fetchPlaylistsByQuery = (musicloverId: MusicloverId, query: string) =>
     timeout(500)
-        .then(() => serializer({ ...mock, query, musicloverId }));
+        .then(() => serializer({ ...queryMock, query, musicloverId }));

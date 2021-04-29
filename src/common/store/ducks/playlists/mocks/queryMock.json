@@ -1,0 +1,30 @@
+{
+  "playlists": [
+    {
+      "id": 1,
+      "title": "Bestie",
+      "aim": {
+        "id": 1,
+        "title": "Work"
+      },
+      "moods": [
+        { "id": 3, "title": "Delighted \uD83D\uDE0B" },
+        { "id": 6, "title": "Irritated \uD83D\uDE12" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "All alone",
+      "aim": {
+        "id": 8,
+        "title": "Walking out"
+      },
+      "moods": [
+        { "id": 3, "title": "Delighted \uD83D\uDE0B" },
+        { "id": 7, "title": "Angry \uD83D\uDE21" },
+        { "id": 5, "title": "Relaxed \uD83D\uDE0C" }
+      ],
+      "songs": []
+    }
+  ]
+}
