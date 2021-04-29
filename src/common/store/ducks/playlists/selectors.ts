@@ -15,3 +15,7 @@ export function selectLoading(state: State) {
 export function selectPlaylists(state: State) {
     return state.playlists.data;
 }
+
+export function selectPlaylistsSorted(state: State) {
+    return state.playlists.sorted;
+}

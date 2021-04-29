@@ -7,6 +7,7 @@ import {
     selectActive as activeSelector,
     selectLoading as isLoadingSelector,
     selectPlaylists as playlistsSelector,
+    selectPlaylistsSorted as playlistsSortedSelector,
 } from 'common/store/ducks/playlists/selectors';
 
 import {
@@ -26,8 +27,10 @@ export function usePlaylists() {
 
     const query = useSelector(querySelector);
     const active = useSelector(activeSelector)
-    const playlists = useSelector(playlistsSelector);
     const isLoading = useSelector(isLoadingSelector);
+
+    const playlists = useSelector(playlistsSelector);
+    const playlistsSorted = useSelector(playlistsSortedSelector);
 
     const fetchActive = React.useCallback(
         () => dispatch(fetchActiveActionCreator()),
@@ -50,6 +53,7 @@ export function usePlaylists() {
         active,
         isLoading,
         playlists,
+        playlistsSorted,
         fetchActive,
         fetchPlaylists,
         fetchPlaylistsByQuery

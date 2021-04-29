@@ -3,7 +3,7 @@ import * as bem from 'b_';
 
 import './Card.css';
 
-import { Playlist } from 'RootModels';
+import { Playlist, PlaylistMood } from 'RootModels';
 
 import { chunker } from '../../utils/Chunk';
 import { collector } from '../../utils/Collector';
@@ -32,7 +32,6 @@ type CardProps = Playlist & {
 
 
 function Card(props: CardProps) {
-    console.log(collector(chunker(props.moods, props.factor), props.factor));
     return (
         <React.Fragment>
             <div className={b('container')}>
@@ -50,7 +49,7 @@ function Card(props: CardProps) {
                     </div>
                     <div className={b('grid-item')}>
                         <div className={b('tag-flex-box')}>
-                            {collector(chunker(props.moods, props.factor), props.factor)
+                            {collector<PlaylistMood>(chunker<PlaylistMood>(props.moods, props.factor), props.factor)
                                 .map(chunk => (
                                     <div className={b('tag-row')}>
                                         {chunk.map(tagProps => (

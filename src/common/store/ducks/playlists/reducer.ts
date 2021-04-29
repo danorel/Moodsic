@@ -14,6 +14,7 @@ import { Playlist } from 'RootModels';
 
 export interface PlaylistsState {
     readonly data: Playlist[];
+    readonly sorted: Playlist[];
     readonly query: string;
     readonly active: boolean;
     readonly isLoading: boolean;
@@ -22,6 +23,7 @@ export interface PlaylistsState {
 
 export const initialState: PlaylistsState = {
     data: [],
+    sorted: [],
     query: '',
     active: false,
     isLoading: false,
@@ -40,11 +42,13 @@ export default produce(
                 return;
             case FETCH_PLAYLISTS_SUCCESS:
                 draft.data = action.payload;
+                draft.sorted = [...action.payload].sort((a, b) => a.title.localeCompare(b.title))
                 draft.isLoading = false;
                 draft.error = undefined;
                 return;
             case FETCH_PLAYLISTS_FAILURE:
                 draft.data = initialState.data;
+                draft.sorted = initialState.sorted;
                 draft.isLoading = false;
                 draft.error = action.payload;
                 return;
@@ -54,10 +58,12 @@ export default produce(
                 return;
             case FETCH_PLAYLISTS_BY_QUERY_SUCCESS:
                 draft.data = action.payload;
+                draft.sorted = [...action.payload].sort((a, b) => a.title.localeCompare(b.title))
                 draft.error = undefined;
                 return;
             case FETCH_PLAYLISTS_BY_QUERY_FAILURE:
                 draft.data = initialState.data;
+                draft.sorted = initialState.sorted;
                 draft.error = action.payload;
                 return;
         }
