@@ -9,9 +9,12 @@
 }
 
 .playlists-body-card__grid-box {
-    grid-template-rows: 15% 15% auto 15%;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 2.5% 15% 5% auto 15%;
     grid-template-columns: auto;
-    grid-auto-columns: auto;
+    grid-auto-rows: auto;
 }
 
 .playlists-body-card__grid-item {
@@ -23,7 +26,6 @@
 
 
 .playlists-body-card__span-title {
-    padding: 15px 0 5px 0;
     font-family: $font-family;
     font-style: normal;
     font-weight: 600;
@@ -43,5 +45,66 @@
     align-items: center;
     text-align: center;
     text-decoration-line: underline;
+    color: $font-color;
+}
+
+.playlists-body-card__span-date {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.25vmin;
+    text-align: left;
+    color: $font-color;
+}
+
+
+.playlists-body-card__tag-flex-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.playlists-body-card__tag-row {
+    width: 100%;
+    margin: 1vmin 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.playlists-body-card__tag-column {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playlists-body-card__tag-button {
+    width: 75%;
+    height: 5.5vmin;
+    border: none;
+    background: rgba(252, 255, 118, 0.9);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+
+    &:hover {
+        background: rgba(245, 250, 125, 0.9);
+    }
+
+    &:active {
+        background: rgba(253, 255, 195, 0.9);
+    }
+}
+
+.playlists-body-card__tag-span {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.5vmin;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     color: $font-color;
 }

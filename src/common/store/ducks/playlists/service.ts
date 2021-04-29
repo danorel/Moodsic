@@ -1,4 +1,4 @@
-import { MusicloverId } from 'RootModels';
+import { MusicloverId, Playlist } from 'RootModels';
 
 import { timeout } from '../timeoutHelper';
 
@@ -6,8 +6,15 @@ import { timeout } from '../timeoutHelper';
 import queryMock from './mocks/queryMock.json';
 import playlistsMock from './mocks/playlistsMock.json';
 
-export const serializer = (data: any) => {
-    return data.playlists;
+export const serializer = (data: any): Playlist[] => {
+    return data.playlists.map((playlist: any) => ({
+        id: String(playlist.id),
+        songs: playlist.songs,
+        title: String(playlist.title),
+        aim: playlist.aim,
+        moods: playlist.moods,
+        date: new Date(JSON.parse(playlist.date)),
+    }));
 };
 
 // Emulate api request

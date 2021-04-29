@@ -82,12 +82,14 @@ declare module 'RootModels' {
         id: string;
         title: string;
     };
+    export type PlaylistDate = Date;
 
     export type Playlist = {
         id: PlaylistId;
         title: PlaylistTitle;
         aim: PlaylistAim;
-        mood: PlaylistMood[];
+        moods: PlaylistMood[];
         songs: Song[];
+        date: PlaylistDate;
     };
 }

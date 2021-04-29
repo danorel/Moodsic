@@ -1,6 +1,6 @@
 .playlists-body__row {
     width: 100%;
-    margin: 3.5vmin 0;
+    margin: 5vmin 0;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

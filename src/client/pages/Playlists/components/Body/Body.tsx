@@ -45,9 +45,9 @@ function Body({ items, factor }: BodyProps) {
                     <div className={b('row')}>
                         {chunk.map((playlist: Playlist) => (
                             <div className={b('column')}>
-                                {!!playlist
-                                    ? <PlaylistCard {...playlist}/>
-                                    : null}
+                                {!playlist
+                                    ? null
+                                    : <PlaylistCard {...playlist} factor={2}/>}
                             </div>
                         ))}
                     </div>
