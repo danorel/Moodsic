@@ -15,9 +15,10 @@ const b = bem.with('playlists-body');
 type BodyProps = {
     items: Playlist[],
     factor?: number;
+    onClick: (query: string) => void;
 }
 
-function Body({ items, factor }: BodyProps) {
+function Body({ items, factor, onClick }: BodyProps) {
     return (
         <React.Fragment>
             {collector<Playlist>(chunker<Playlist>(items, factor), factor)
@@ -27,7 +28,7 @@ function Body({ items, factor }: BodyProps) {
                             <div className={b('column')}>
                                 {!playlist
                                     ? null
-                                    : <PlaylistCard {...playlist} factor={2}/>}
+                                    : <PlaylistCard {...playlist} factor={2} onClick={onClick}/>}
                             </div>
                         ))}
                     </div>

@@ -52,9 +52,12 @@ function PlaylistsPage() {
                             onChange={fetchPlaylistsByQuery} />
                     </div>
                     <div className={b('flex-item')}>
-                        <Body items={active
-                            ? playlistsSorted
-                            : playlists} factor={3}/>
+                        <Body
+                            items={active
+                                ? playlistsSorted
+                                : playlists}
+                            factor={3}
+                            onClick={fetchPlaylistsByQuery}/>
                     </div>
                 </div>
             </ContainerVertical>

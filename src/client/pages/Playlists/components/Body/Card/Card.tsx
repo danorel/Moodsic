@@ -11,13 +11,14 @@ import { collector } from '../../utils/Collector';
 const b = bem.with('playlists-body-card')
 
 type CardTag = {
-    title: string
+    title: string;
+    onClick: (query: string) => void;
 };
 
-function Tag({ title }: CardTag) {
+function Tag({ title, onClick }: CardTag) {
     return (
         <React.Fragment>
-            <button className={b('tag-button')}>
+            <button className={b('tag-button')} onClick={() => onClick(title)}>
                 <span className={b('tag-span')}>
                     {title}
                 </span>
@@ -27,7 +28,8 @@ function Tag({ title }: CardTag) {
 }
 
 type CardProps = Playlist & {
-    factor: number
+    factor: number;
+    onClick: (query: string) => void;
 };
 
 
@@ -56,7 +58,7 @@ function Card(props: CardProps) {
                                             <div className={b('tag-column')}>
                                                 {!tagProps
                                                     ? null
-                                                    : <Tag {...tagProps}/>}
+                                                    : <Tag {...tagProps} onClick={props.onClick}/>}
                                             </div>
                                         ))}
                                     </div>
