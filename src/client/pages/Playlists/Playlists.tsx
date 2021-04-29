@@ -51,7 +51,7 @@ function PlaylistsPage() {
                             onChange={fetchPlaylistsByQuery} />
                     </div>
                     <div className={b('flex-item')}>
-                        <Body items={playlists} />
+                        <Body items={playlists} factor={3}/>
                     </div>
                 </div>
             </ContainerVertical>

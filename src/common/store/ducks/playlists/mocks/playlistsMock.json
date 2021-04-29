@@ -39,6 +39,20 @@
           { "id": 5, "title": "Relaxed \uD83D\uDE0C" }
         ],
         "songs": []
+      },
+      {
+        "id": 4,
+        "title": "Mood lucky",
+        "aim": {
+          "id": 4,
+          "title": "Workout"
+        },
+        "moods": [
+          { "id": 1, "title": "Happy \uD83D\uDE0D" },
+          { "id": 3, "title": "Delighted \uD83D\uDE0B" },
+          { "id": 5, "title": "Relaxed \uD83D\uDE0C" }
+        ],
+        "songs": []
       }
     ]
 }

@@ -1,0 +1,47 @@
+@import '../../../../../styles/constants.css';
+
+.playlists-body-card__container {
+    width: 80%;
+    height: 50vmin;
+    background: #FFE8AE;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.playlists-body-card__grid-box {
+    grid-template-rows: 15% 15% auto 15%;
+    grid-template-columns: auto;
+    grid-auto-columns: auto;
+}
+
+.playlists-body-card__grid-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.playlists-body-card__span-title {
+    padding: 15px 0 5px 0;
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 3.5vmin;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $font-color;
+}
+
+.playlists-body-card__span-aim {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.5vmin;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-decoration-line: underline;
+    color: $font-color;
+}

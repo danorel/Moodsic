@@ -9,9 +9,27 @@ import { Card as PlaylistCard } from './Card/Card';
 
 const b = bem.with('playlists-body');
 
-function* chunks(arr: Playlist[], factor: number) {
+function chunks(arr: Playlist[], factor: number): Playlist[][] {
+    const chunksArr: Playlist[][] = [];
     for (let i = 0; i < arr.length; i += factor)
-        yield arr.slice(i, i + factor);
+        chunksArr.push(arr.slice(i, i + factor));
+    return chunksArr;
+}
+
+function collect(arr: Playlist[][], factor: number): ((Playlist | null)[])[] {
+    if (!arr.length)
+        return [];
+
+    const last = arr.length - 1;
+
+    return [
+        ...[...arr.slice(0, last)],
+        [
+            ...arr[last],
+            ...new Array(factor - arr[last].length)
+                .map(_ => null)
+        ]
+    ];
 }
 
 type BodyProps = {
@@ -22,12 +40,14 @@ type BodyProps = {
 function Body({ items, factor }: BodyProps) {
     return (
         <React.Fragment>
-            {[...chunks(items, factor)]
+            {collect(chunks(items, factor), factor)
                 .map((chunk: Playlist[]) => (
                     <div className={b('row')}>
                         {chunk.map((playlist: Playlist) => (
                             <div className={b('column')}>
-                                <PlaylistCard {...playlist}/>
+                                {!!playlist
+                                    ? <PlaylistCard {...playlist}/>
+                                    : null}
                             </div>
                         ))}
                     </div>
