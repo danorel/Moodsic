@@ -16,8 +16,8 @@ function Sort({ active, onClick }: SortProps) {
             <button className={b('button', { active })} onClick={() => onClick(!active)}>
                 <span className={b('span')}>
                     {active
-                        ? "Sort by alphabet"
-                        : "Sorted by alphabet"}
+                        ? "Sorted by alphabet"
+                        : "Sort by alphabet"}
                 </span>
             </button>
         </React.Fragment>

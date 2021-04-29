@@ -15,6 +15,21 @@ function* fetchPlaylists(action: types.FetchPlaylistsRequestAction) {
     }
 }
 
+function* fetchPlaylistsByQuery(action: types.FetchPlaylistsByQueryRequestAction) {
+    try {
+        const { musicloverId, query } = action.payload;
+        const data = yield call(service.fetchPlaylistsByQuery, musicloverId, query);
+
+        yield put(actions.fetchPlaylistsByQuerySuccess(data));
+    } catch (error) {
+        yield put(actions.fetchPlaylistsByQueryError(error.message));
+    }
+}
+
 export function* playlistsSaga() {
     yield takeLatest(types.FETCH_PLAYLISTS_REQUEST, fetchPlaylists);
+}
+
+export function* playlistsByQuerySaga() {
+    yield takeLatest(types.FETCH_PLAYLISTS_BY_QUERY_REQUEST, fetchPlaylistsByQuery);
 }

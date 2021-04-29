@@ -16,9 +16,13 @@ const b = bem.with('playlists');
 
 function PlaylistsPage() {
     const {
+        query,
+        active,
         isLoading,
         playlists,
-        fetchPlaylists
+        fetchActive,
+        fetchPlaylists,
+        fetchPlaylistsByQuery,
     } = usePlaylists();
 
     React.useEffect(() => {
@@ -40,7 +44,11 @@ function PlaylistsPage() {
                         <Header title="How do you feel today?"/>
                     </div>
                     <div className={b('flex-item')}>
-                        <Bar/>
+                        <Bar
+                            value={query}
+                            active={active}
+                            onClick={fetchActive}
+                            onChange={fetchPlaylistsByQuery} />
                     </div>
                     <div className={b('flex-item')}>
                         <Body items={playlists} />

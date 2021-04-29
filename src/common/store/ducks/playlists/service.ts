@@ -6,7 +6,6 @@ import { timeout } from '../timeoutHelper';
 import mock from './mocks/mock.json';
 
 export const serializer = (data: any) => {
-    console.log(data);
     return data.playlists;
 };
 
@@ -14,3 +13,7 @@ export const serializer = (data: any) => {
 export const fetchPlaylists = (musicloverId: MusicloverId) =>
     timeout(1500)
         .then(() => serializer({ ...mock, musicloverId }));
+
+export const fetchPlaylistsByQuery = (musicloverId: MusicloverId, query: string) =>
+    timeout(500)
+        .then(() => serializer({ ...mock, query, musicloverId }));
