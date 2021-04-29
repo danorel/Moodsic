@@ -9,7 +9,10 @@
 
 .playlists-bar__grid-item {
     flex: 1;
+    height: 7vmin;
     width: 100%;
-    display: flex;
     flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
