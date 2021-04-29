@@ -1,7 +1,8 @@
 import produce, { Draft } from 'immer';
 
 import {
-    FETCH_ACTIVE_REQUEST, FETCH_PLAYLISTS_BY_QUERY_FAILURE,
+    FETCH_ACTIVE_REQUEST,
+    FETCH_PLAYLISTS_BY_QUERY_FAILURE,
     FETCH_PLAYLISTS_BY_QUERY_REQUEST,
     FETCH_PLAYLISTS_BY_QUERY_SUCCESS,
     FETCH_PLAYLISTS_FAILURE,
@@ -30,6 +31,14 @@ export const initialState: PlaylistsState = {
     error: undefined,
 };
 
+function playlistDateComparator(a: Playlist, b: Playlist) {
+    return b.date.getTime() - a.date.getTime();
+}
+
+function playlistTitleComparator(a: Playlist, b: Playlist) {
+    return a.title.localeCompare(b.title);
+}
+
 export default produce(
     (draft: Draft<PlaylistsState> = initialState, action: PlaylistsActionTypes) => {
         switch (action.type) {
@@ -41,8 +50,8 @@ export default produce(
                 draft.error = undefined;
                 return;
             case FETCH_PLAYLISTS_SUCCESS:
-                draft.data = action.payload;
-                draft.sorted = [...action.payload].sort((a, b) => a.title.localeCompare(b.title))
+                draft.data = [...action.payload].sort(playlistDateComparator);
+                draft.sorted = [...action.payload].sort(playlistTitleComparator)
                 draft.isLoading = false;
                 draft.error = undefined;
                 return;
@@ -57,8 +66,8 @@ export default produce(
                 draft.error = undefined;
                 return;
             case FETCH_PLAYLISTS_BY_QUERY_SUCCESS:
-                draft.data = action.payload;
-                draft.sorted = [...action.payload].sort((a, b) => a.title.localeCompare(b.title))
+                draft.data = [...action.payload].sort(playlistDateComparator);
+                draft.sorted = [...action.payload].sort(playlistTitleComparator)
                 draft.error = undefined;
                 return;
             case FETCH_PLAYLISTS_BY_QUERY_FAILURE:
