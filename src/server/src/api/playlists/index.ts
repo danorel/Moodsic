@@ -16,4 +16,4 @@ app.get('/', async (req: Request, res: Response, next: NextFunction) => {
     });
 });
 
-module.exports = app;
+export default app;

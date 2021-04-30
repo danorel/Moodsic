@@ -6,26 +6,27 @@ const PlaylistSchema = new Schema(
     {
         title: {
             required: true,
+            type: mongoose.SchemaTypes.String,
         },
         aim: {
             id: {
                 required: true,
-                type: mongoose.SchemaType.Number,
+                type: mongoose.SchemaTypes.Number,
             },
             title: {
                 required: true,
-                type: mongoose.SchemaType.String,
+                type: mongoose.SchemaTypes.String,
             },
         },
         moods: [
             {
                 id: {
                     required: true,
-                    type: mongoose.SchemaType.Number,
+                    type: mongoose.SchemaTypes.Number,
                 },
                 title: {
                     required: true,
-                    type: mongoose.SchemaType.String,
+                    type: mongoose.SchemaTypes.String,
                 },
             },
         ],
@@ -33,17 +34,17 @@ const PlaylistSchema = new Schema(
             {
                 id: {
                     required: true,
-                    type: mongoose.SchemaType.Number,
+                    type: mongoose.SchemaTypes.Number,
                 },
                 title: {
                     required: true,
-                    type: mongoose.SchemaType.String,
+                    type: mongoose.SchemaTypes.String,
                 },
             },
         ],
         date: {
             required: true,
-            type: mongoose.SchemaType.Date,
+            type: mongoose.SchemaTypes.Date,
         },
     },
     {
