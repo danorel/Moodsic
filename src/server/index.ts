@@ -8,7 +8,8 @@ import serverMiddleware from './middleware';
 import { initParsers } from './src/middleware/parsers';
 import { initSession } from './src/middleware/session';
 import { initServices } from './src/services';
-import { initRoutes } from './src/api';
+
+const initRoutes = require('./src/api');
 
 const app = express();
 

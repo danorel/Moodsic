@@ -1,8 +1,6 @@
-import { Application } from 'express';
-
-const initRoutes = (app: Application) => {
+const initRoutes = app => {
     app.use('/playlists', require('./playlists'));
     app.use('/musiclover', require('./musiclover'));
 };
 
-export { initRoutes };
+module.exports = initRoutes;
