@@ -23,8 +23,8 @@ export default {
             {
                 loader: 'css-loader',
                 options: {
-                    importLoaders: 1
-                }
+                    importLoaders: 1,
+                },
             },
             {
                 loader: 'postcss-loader',
@@ -39,9 +39,7 @@ export default {
                             }),
                         }),
                         postcssEasyImport({
-                            path: [
-                                path.resolve(SRC_DIR, 'client')
-                            ]
+                            path: [path.resolve(SRC_DIR, 'client')],
                         }),
                         postcssShort(),
                         postcssImport(),

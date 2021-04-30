@@ -8,16 +8,7 @@ export const FETCH_MUSICLOVER_FAILURE = '@@musiclover/FETCH_MUSICLOVER_FAILURE';
 
 // action types
 export type FetchMusicloverRequestAction = ReduxAction<typeof FETCH_MUSICLOVER_REQUEST>;
-export type FetchMusicloverSuccessAction = ReduxAction<
-    typeof FETCH_MUSICLOVER_SUCCESS,
-    Musiclover
->;
-export type FetchMusicloverFailureAction = ReduxAction<
-    typeof FETCH_MUSICLOVER_FAILURE,
-    string
->;
+export type FetchMusicloverSuccessAction = ReduxAction<typeof FETCH_MUSICLOVER_SUCCESS, Musiclover>;
+export type FetchMusicloverFailureAction = ReduxAction<typeof FETCH_MUSICLOVER_FAILURE, string>;
 
-export type MusicloverActionTypes =
-    | FetchMusicloverRequestAction
-    | FetchMusicloverSuccessAction
-    | FetchMusicloverFailureAction;
+export type MusicloverActionTypes = FetchMusicloverRequestAction | FetchMusicloverSuccessAction | FetchMusicloverFailureAction;

@@ -5,11 +5,9 @@ import mock from './mocks/musicloverMock.json';
 
 export const serializer = (data: any) => {
     return {
-        musicloverId: data.musicloverId
+        musicloverId: data.musicloverId,
     };
 };
 
 // Emulate api request
-export const fetchMusiclover = () =>
-    timeout(500)
-        .then(() => serializer({ ...mock }));
+export const fetchMusiclover = () => timeout(500).then(() => serializer({ ...mock }));

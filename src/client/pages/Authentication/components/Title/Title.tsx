@@ -13,9 +13,7 @@ export function TitleComponent({ switching }: TitleProps) {
     return (
         <React.Fragment>
             <div className={b('container')}>
-                <span className={b('span')}>
-                    {switching ? 'Glad to see you again!' : 'Hello, musiclover :)'}
-                </span>
+                <span className={b('span')}>{switching ? 'Glad to see you again!' : 'Hello, musiclover :)'}</span>
             </div>
         </React.Fragment>
     );

@@ -1,11 +1,6 @@
 import produce, { Draft } from 'immer';
 
-import {
-    MusicloverActionTypes,
-    FETCH_MUSICLOVER_REQUEST,
-    FETCH_MUSICLOVER_FAILURE,
-    FETCH_MUSICLOVER_SUCCESS,
-} from './types';
+import { MusicloverActionTypes, FETCH_MUSICLOVER_REQUEST, FETCH_MUSICLOVER_FAILURE, FETCH_MUSICLOVER_SUCCESS } from './types';
 
 import { Musiclover } from 'RootModels';
 
@@ -17,30 +12,28 @@ export interface MusicloverState {
 
 export const initialState: MusicloverState = {
     data: {
-        id: null
+        id: null,
     },
     isLoading: false,
     error: undefined,
 };
 
-export default produce(
-    (draft: Draft<MusicloverState> = initialState, action: MusicloverActionTypes) => {
-        switch (action.type) {
-            case FETCH_MUSICLOVER_REQUEST:
-                draft.isLoading = true;
-                draft.error = undefined;
-                return;
-            case FETCH_MUSICLOVER_SUCCESS:
-                draft.data = action.payload;
-                draft.isLoading = false;
-                draft.error = undefined;
-                return;
-            case FETCH_MUSICLOVER_FAILURE:
-                draft.data = initialState.data;
-                draft.isLoading = false;
-                draft.error = action.payload;
-                return;
-        }
-        return draft;
+export default produce((draft: Draft<MusicloverState> = initialState, action: MusicloverActionTypes) => {
+    switch (action.type) {
+        case FETCH_MUSICLOVER_REQUEST:
+            draft.isLoading = true;
+            draft.error = undefined;
+            return;
+        case FETCH_MUSICLOVER_SUCCESS:
+            draft.data = action.payload;
+            draft.isLoading = false;
+            draft.error = undefined;
+            return;
+        case FETCH_MUSICLOVER_FAILURE:
+            draft.data = initialState.data;
+            draft.isLoading = false;
+            draft.error = action.payload;
+            return;
     }
-);
+    return draft;
+});

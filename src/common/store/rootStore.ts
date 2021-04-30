@@ -15,26 +15,16 @@ function getComposeEnhancers() {
     return compose;
 }
 
-export const isServer = !(
-    typeof window !== 'undefined' &&
-    window.document &&
-    window.document.createElement
-);
+export const isServer = !(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 export function configureStore(initialState: State, url = '/') {
-    const history = isServer
-        ? createMemoryHistory({ initialEntries: [url] })
-        : createBrowserHistory();
+    const history = isServer ? createMemoryHistory({ initialEntries: [url] }) : createBrowserHistory();
 
     const sagaMiddleware = createSagaMiddleware();
     const composeEnhancers = getComposeEnhancers();
     const middlewares = [routerMiddleware(history), sagaMiddleware];
 
-    const store = createStore(
-        createRootReducer(history),
-        initialState,
-        composeEnhancers(applyMiddleware(...middlewares))
-    ) as AppStore;
+    const store = createStore(createRootReducer(history), initialState, composeEnhancers(applyMiddleware(...middlewares))) as AppStore;
 
     // Add methods to use in the server
     store.runSaga = sagaMiddleware.run;

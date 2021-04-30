@@ -15,8 +15,7 @@ type Props = {
 function Home(props: Props) {
     const { isLoading } = props;
 
-    if (isLoading)
-        return <HomeStub />;
+    if (isLoading) return <HomeStub />;
 
     return (
         <React.Fragment>
@@ -31,7 +30,4 @@ const mapStateToProps = (state: State) => ({
 });
 const mapDispatchToProps = { fetchHomepage: fetchHomepageRequest };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Home) as React.ComponentType<Props>;
+export default connect(mapStateToProps, mapDispatchToProps)(Home) as React.ComponentType<Props>;

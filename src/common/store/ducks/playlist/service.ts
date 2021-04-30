@@ -20,5 +20,4 @@ export const serializer = (data: any) => {
 };
 
 // Emulate api request
-export const fetchShoes = (slug: string) =>
-    timeout(500).then(() => serializer({ ...mock, slug }));
+export const fetchShoes = (slug: string) => timeout(500).then(() => serializer({ ...mock, slug }));

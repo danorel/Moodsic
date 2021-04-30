@@ -9,14 +9,12 @@ const b = bem.with('body-items');
 
 type DescriptionProps = {
     title: string;
-}
+};
 
 function Description({ title }: DescriptionProps) {
     return (
         <React.Fragment>
-            <div className={b('description')}>
-                {title}
-            </div>
+            <div className={b('description')}>{title}</div>
         </React.Fragment>
     );
 }
@@ -24,7 +22,7 @@ function Description({ title }: DescriptionProps) {
 type ItemProps = {
     title: string;
     active: boolean;
-}
+};
 
 function Item({ title, active }: ItemProps) {
     return (
@@ -38,10 +36,10 @@ function Item({ title, active }: ItemProps) {
 
 type BodyItemsProps = {
     title: string;
-    items: (PlaygroundMood | PlaygroundAim)[],
-    options: (PlaygroundMood | PlaygroundAim)[],
+    items: (PlaygroundMood | PlaygroundAim)[];
+    options: (PlaygroundMood | PlaygroundAim)[];
     onClick: (item: PlaygroundMood | PlaygroundAim) => void;
-}
+};
 
 function BodyItems({ title, items, options, onClick }: BodyItemsProps) {
     return (
@@ -54,7 +52,7 @@ function BodyItems({ title, items, options, onClick }: BodyItemsProps) {
                     <div className={b('grid-item')}>
                         <div className={b('flex-box')}>
                             {items.map(itemProps => (
-                                <div onClick={() => onClick({...itemProps})} className={b('flex-item')}>
+                                <div onClick={() => onClick({ ...itemProps })} className={b('flex-item')}>
                                     <Item {...itemProps} active={options.map(option => option.id).includes(itemProps.id)} />
                                 </div>
                             ))}

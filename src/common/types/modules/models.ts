@@ -8,8 +8,8 @@ declare module 'RootModels' {
     export type AuthenticationStatus = boolean;
 
     export type AuthenticationSwitching =
-        | true  // stands for sign in
-        | false // stands for sign up
+        | true // stands for sign in
+        | false; // stands for sign up
 
     export type AuthenticationEmail = string;
 
@@ -22,21 +22,21 @@ declare module 'RootModels' {
      */
 
     export type PlaygroundMusiclover = {
-        aims: PlaygroundAim[],
-        moods: PlaygroundMood[]
-    }
+        aims: PlaygroundAim[];
+        moods: PlaygroundMood[];
+    };
 
     export type PlaygroundConfig = PlaygroundMusiclover;
 
     export type PlaygroundAim = {
-        id: number,
+        id: number;
         title: string;
-    }
+    };
 
     export type PlaygroundMood = {
-        id: number,
+        id: number;
         title: string;
-    }
+    };
 
     /*
      * Musiclover types:

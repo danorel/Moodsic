@@ -9,8 +9,6 @@ export function fetchHomepageSuccess(data: {}): types.FetchHomepageSuccessAction
     return { type: types.FETCH_HOMEPAGE_SUCCESS, payload: data };
 }
 
-export function fetchHomepageError(
-    error: string
-): types.FetchHomepageFailureAction {
+export function fetchHomepageError(error: string): types.FetchHomepageFailureAction {
     return { type: types.FETCH_HOMEPAGE_FAILURE, payload: error };
 }

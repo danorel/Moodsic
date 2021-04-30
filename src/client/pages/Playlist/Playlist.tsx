@@ -12,13 +12,7 @@ import './Playlist.css';
 const b = bem.with('sneakers-page');
 
 function PlaylistPage() {
-    const {
-        match,
-        isLoading,
-        data,
-        fetchPlaylist,
-        fetchMusiclover,
-    } = usePlaylist();
+    const { match, isLoading, data, fetchPlaylist, fetchMusiclover } = usePlaylist();
 
     React.useEffect(() => {
         if (!data || data.id !== match.params.musicloverId) {
@@ -27,8 +21,7 @@ function PlaylistPage() {
         }
     }, [match]);
 
-    if (isLoading || !data)
-        return <PlaylistStub />;
+    if (isLoading || !data) return <PlaylistStub />;
 
     const { songs, aim, id, mood, name, weather } = data;
 

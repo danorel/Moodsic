@@ -1,10 +1,6 @@
 import * as types from './types';
 
-import {
-    AuthenticationEmail,
-    AuthenticationStatus,
-    AuthenticationSwitching
-} from 'RootModels';
+import { AuthenticationEmail, AuthenticationStatus, AuthenticationSwitching } from 'RootModels';
 
 export function fetchEmailRequest(email: AuthenticationEmail): types.FetchEmailRequestAction {
     return { type: types.FETCH_EMAIL_REQUEST, payload: email };
@@ -22,9 +18,7 @@ export function fetchSubmissionSuccess(data: { isAuthenticated: AuthenticationSt
     return { type: types.FETCH_SUBMISSION_SUCCESS, payload: data };
 }
 
-export function fetchSubmissionError(
-    error: string
-): types.FetchSubmissionFailureAction {
+export function fetchSubmissionError(error: string): types.FetchSubmissionFailureAction {
     return { type: types.FETCH_SUBMISSION_FAILURE, payload: error };
 }
 
@@ -36,8 +30,6 @@ export function fetchAuthenticationSuccess(data: { isAuthenticated: Authenticati
     return { type: types.FETCH_AUTHENTICATION_SUCCESS, payload: data };
 }
 
-export function fetchAuthenticationError(
-    error: string
-): types.FetchAuthenticationFailureAction {
+export function fetchAuthenticationError(error: string): types.FetchAuthenticationFailureAction {
     return { type: types.FETCH_AUTHENTICATION_FAILURE, payload: error };
 }

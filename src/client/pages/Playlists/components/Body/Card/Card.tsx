@@ -5,13 +5,9 @@ import './Card.css';
 
 import { Playlist } from 'RootModels';
 
-import {
-    CardItem,
-    CardItems,
-    CardItemsMock
-} from './Items';
+import { CardItem, CardItems, CardItemsMock } from './Items';
 
-const b = bem.with('playlists-body-card')
+const b = bem.with('playlists-body-card');
 
 export type CardProps = Playlist & {
     mock: boolean;
@@ -19,11 +15,8 @@ export type CardProps = Playlist & {
     onClick: (query: string) => void;
 };
 
-
 function Card(props: CardProps) {
-    const Items = props.mock
-        ? CardItemsMock
-        : CardItems
+    const Items = props.mock ? CardItemsMock : CardItems;
 
     return (
         <React.Fragment>
@@ -37,7 +30,7 @@ function Card(props: CardProps) {
                 </div>
             </div>
         </React.Fragment>
-    )
+    );
 }
 
 export { Card };

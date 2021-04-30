@@ -22,9 +22,9 @@ function Button({ title, disabled, onClick }: ButtonProps) {
 }
 
 Button.defaultProps = {
-    title: "Continue",
-    disabled: false
-}
+    title: 'Continue',
+    disabled: false,
+};
 
 type FooterProps = {
     title: string;
@@ -43,8 +43,8 @@ function Footer({ title, disabled, onClick }: FooterProps) {
 }
 
 Footer.defaultProps = {
-    title: "Continue",
-    disabled: false
-}
+    title: 'Continue',
+    disabled: false,
+};
 
 export { Footer };

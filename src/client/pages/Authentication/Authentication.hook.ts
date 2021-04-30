@@ -15,10 +15,7 @@ import {
     fetchAuthenticationRequest as fetchAuthenticationActionCreator,
 } from 'common/store/ducks/authentication/actions';
 
-import {
-    AuthenticationEmail,
-    AuthenticationSwitching
-} from 'RootModels';
+import { AuthenticationEmail, AuthenticationSwitching } from 'RootModels';
 
 export function useAuthentication() {
     const dispatch = useDispatch();
@@ -28,25 +25,13 @@ export function useAuthentication() {
     const isLoading = useSelector(isLoadingSelector);
     const isAuthenticated = useSelector(authenticatedSelector);
 
-    const onChangeEmail = React.useCallback(
-        (email: AuthenticationEmail) => dispatch(fetchEmailActionCreator(email)),
-        [dispatch]
-    );
+    const onChangeEmail = React.useCallback((email: AuthenticationEmail) => dispatch(fetchEmailActionCreator(email)), [dispatch]);
 
-    const onChangeSwitching = React.useCallback(
-        (switching: AuthenticationSwitching) => dispatch(fetchSwitchingActionCreator(switching)),
-        [dispatch]
-    );
+    const onChangeSwitching = React.useCallback((switching: AuthenticationSwitching) => dispatch(fetchSwitchingActionCreator(switching)), [dispatch]);
 
-    const fetchSubmission = React.useCallback(
-        () => dispatch(fetchSubmissionActionCreator()),
-        [dispatch]
-    );
+    const fetchSubmission = React.useCallback(() => dispatch(fetchSubmissionActionCreator()), [dispatch]);
 
-    const fetchAuthentication = React.useCallback(
-        () => dispatch(fetchAuthenticationActionCreator()),
-        [dispatch]
-    );
+    const fetchAuthentication = React.useCallback(() => dispatch(fetchAuthenticationActionCreator()), [dispatch]);
 
     return {
         email,

@@ -12,15 +12,13 @@ import { useAuthentication } from '../../pages/Authentication/Authentication.hoo
 const b = bem.with('app');
 
 function App() {
-    const {
-        isAuthenticated
-    } = useAuthentication();
+    const { isAuthenticated } = useAuthentication();
 
     return (
-        <div className={b("", { type: 'default' })}>
+        <div className={b('', { type: 'default' })}>
             <div className={b('grid-box', { authenticated: isAuthenticated })}>
                 <div className={b('grid-item')}>
-                    <Navbar type={isAuthenticated ? 'authorized' : 'non-authorized'}/>
+                    <Navbar type={isAuthenticated ? 'authorized' : 'non-authorized'} />
                 </div>
                 <div className={b('grid-item')}>
                     <Switch>
@@ -30,7 +28,7 @@ function App() {
                     </Switch>
                 </div>
                 <div className={b('grid-item', { authenticated: isAuthenticated })}>
-                    <Footer display={isAuthenticated}/>
+                    <Footer display={isAuthenticated} />
                 </div>
             </div>
         </div>

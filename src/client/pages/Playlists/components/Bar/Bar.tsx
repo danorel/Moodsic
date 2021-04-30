@@ -10,19 +10,13 @@ const b = bem.with('playlists-bar');
 
 type BarProps = {
     value: string;
-    active: boolean,
-    disabled: boolean,
+    active: boolean;
+    disabled: boolean;
     onClick: (active: boolean) => void;
     onChange: (modified: string) => void;
-}
+};
 
-function Bar({
-                 value,
-                 active,
-                 disabled,
-                 onClick,
-                 onChange,
-             }: BarProps) {
+function Bar({ value, active, disabled, onClick, onChange }: BarProps) {
     return (
         <React.Fragment>
             <div className={b('grid-box')}>

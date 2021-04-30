@@ -1,11 +1,6 @@
 import produce, { Draft } from 'immer';
 
-import {
-    PlaylistActionTypes,
-    FETCH_PLAYLIST_REQUEST,
-    FETCH_PLAYLIST_FAILURE,
-    FETCH_PLAYLIST_SUCCESS,
-} from './types';
+import { PlaylistActionTypes, FETCH_PLAYLIST_REQUEST, FETCH_PLAYLIST_FAILURE, FETCH_PLAYLIST_SUCCESS } from './types';
 
 import { Playlist } from 'RootModels';
 
@@ -21,24 +16,22 @@ export const initialState: PlaylistState = {
     error: undefined,
 };
 
-export default produce(
-    (draft: Draft<PlaylistState> = initialState, action: PlaylistActionTypes) => {
-        switch (action.type) {
-            case FETCH_PLAYLIST_REQUEST:
-                draft.isLoading = true;
-                draft.error = undefined;
-                return;
-            case FETCH_PLAYLIST_SUCCESS:
-                draft.data = action.payload;
-                draft.isLoading = false;
-                draft.error = undefined;
-                return;
-            case FETCH_PLAYLIST_FAILURE:
-                draft.data = initialState.data;
-                draft.isLoading = false;
-                draft.error = action.payload;
-                return;
-        }
-        return draft;
+export default produce((draft: Draft<PlaylistState> = initialState, action: PlaylistActionTypes) => {
+    switch (action.type) {
+        case FETCH_PLAYLIST_REQUEST:
+            draft.isLoading = true;
+            draft.error = undefined;
+            return;
+        case FETCH_PLAYLIST_SUCCESS:
+            draft.data = action.payload;
+            draft.isLoading = false;
+            draft.error = undefined;
+            return;
+        case FETCH_PLAYLIST_FAILURE:
+            draft.data = initialState.data;
+            draft.isLoading = false;
+            draft.error = action.payload;
+            return;
     }
-);
+    return draft;
+});

@@ -15,24 +15,24 @@ enum PageAuthorizedName {
     Home = 'Home',
     Playlists = 'My Playlists',
     Playground = 'Generate more',
-    SignOut = 'Sign out'
+    SignOut = 'Sign out',
 }
 
 enum PageAuthorizedPath {
     Home = 'Home',
     Playlists = 'Playlists',
     Playground = 'Playground',
-    SignOut = 'SignOut'
+    SignOut = 'SignOut',
 }
 
 export const HeaderAuthorizedMenu: HeaderMenu[] = [
     {
         complex: false,
-        child: <div/>
+        child: <div />,
     },
     {
         complex: true,
-        child: <span/>,
+        child: <span />,
         to: '/',
         exact: true,
         name: PageAuthorizedName.Home,
@@ -41,7 +41,7 @@ export const HeaderAuthorizedMenu: HeaderMenu[] = [
     },
     {
         complex: false,
-        child: <div/>,
+        child: <div />,
     },
     {
         complex: true,
@@ -72,7 +72,7 @@ export const HeaderAuthorizedMenu: HeaderMenu[] = [
     },
     {
         complex: false,
-        child: <div/>
+        child: <div />,
     },
 ];
 
@@ -83,23 +83,23 @@ export const HeaderAuthorizedMenu: HeaderMenu[] = [
 enum PageNonAuthorizedName {
     Home = 'Home',
     SignIn = 'Sign In',
-    SignUp = 'Sign Up'
+    SignUp = 'Sign Up',
 }
 
 enum PageNonAuthorizedPath {
     Home = 'Home',
     SignIn = 'Authentication',
-    SignUp = 'Authentication'
+    SignUp = 'Authentication',
 }
 
 export const HeaderNonAuthorizedMenu: HeaderMenu[] = [
     {
         complex: false,
-        child: <div/>
+        child: <div />,
     },
     {
         complex: true,
-        child: <span/>,
+        child: <span />,
         to: '/',
         exact: true,
         name: PageNonAuthorizedName.Home,
@@ -108,7 +108,7 @@ export const HeaderNonAuthorizedMenu: HeaderMenu[] = [
     },
     {
         complex: false,
-        child: <div/>,
+        child: <div />,
     },
     {
         complex: true,
@@ -132,6 +132,6 @@ export const HeaderNonAuthorizedMenu: HeaderMenu[] = [
     },
     {
         complex: false,
-        child: <div/>
+        child: <div />,
     },
 ];

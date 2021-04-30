@@ -9,7 +9,7 @@ type SearchProps = {
     value: string;
     disabled: boolean;
     onChange: (modified: string) => void;
-}
+};
 
 function Search({ value, disabled, onChange }: SearchProps) {
     return (
@@ -18,11 +18,12 @@ function Search({ value, disabled, onChange }: SearchProps) {
                 disabled={disabled}
                 type="text"
                 value={value}
-                placeholder={"Search for..."}
+                placeholder={'Search for...'}
                 className={b('input')}
-                onChange={(evt) => onChange(evt.target.value)}/>
+                onChange={evt => onChange(evt.target.value)}
+            />
         </React.Fragment>
-    )
+    );
 }
 
 export { Search };

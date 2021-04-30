@@ -9,4 +9,3 @@ declare module 'RootRouter' {
         match: match<{ musicloverId: MusicloverId }>;
     };
 }
-

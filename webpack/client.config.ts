@@ -34,11 +34,7 @@ const config: Configuration = {
         extensions: ['*', '.js', '.jsx', '.json', '.ts', '.tsx', '.css'],
         plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
     },
-    plugins: [
-        new MiniCssExtractPlugin({ filename: '[name].css' }),
-        !IS_DEV && new CompressionPlugin(),
-        new LoadablePlugin(),
-    ].filter(Boolean) as Plugin[],
+    plugins: [new MiniCssExtractPlugin({ filename: '[name].css' }), !IS_DEV && new CompressionPlugin(), new LoadablePlugin()].filter(Boolean) as Plugin[],
     performance: {
         hints: IS_DEV ? false : 'warning',
     },

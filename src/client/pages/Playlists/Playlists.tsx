@@ -15,57 +15,32 @@ import { usePlaylists } from './Playlists.hook';
 const b = bem.with('playlists');
 
 function PlaylistsPage() {
-    const {
-        query,
-        active,
-        isLoading,
-        playlists,
-        playlistsSorted,
-        fetchActive,
-        fetchPlaylists,
-        fetchPlaylistsByQuery,
-    } = usePlaylists();
+    const { query, active, isLoading, playlists, playlistsSorted, fetchActive, fetchPlaylists, fetchPlaylistsByQuery } = usePlaylists();
 
     React.useEffect(() => {
         fetchPlaylists();
     }, []);
 
-    if (isLoading)
-        return <PlaylistStubComponent />;
+    if (isLoading) return <PlaylistStubComponent />;
 
     return (
         <Container>
-            <Meta
-                title="My Playlists"
-                description="See awesome collection of generated playlists"
-            />
+            <Meta title="My Playlists" description="See awesome collection of generated playlists" />
             <ContainerVertical>
                 <div className={b('flex-box')}>
                     <div className={b('flex-item')}>
-                        <Header title="My playlists"/>
+                        <Header title="My playlists" />
                     </div>
                     <div className={b('flex-item')}>
-                        <Bar
-                            value={query}
-                            active={active}
-                            disabled={false}
-                            onClick={fetchActive}
-                            onChange={fetchPlaylistsByQuery} />
+                        <Bar value={query} active={active} disabled={false} onClick={fetchActive} onChange={fetchPlaylistsByQuery} />
                     </div>
                     <div className={b('flex-item')}>
-                        <Body
-                            mock={false}
-                            items={active
-                                ? playlistsSorted
-                                : playlists}
-                            factor={3}
-                            onClick={fetchPlaylistsByQuery}/>
+                        <Body mock={false} items={active ? playlistsSorted : playlists} factor={3} onClick={fetchPlaylistsByQuery} />
                     </div>
                 </div>
             </ContainerVertical>
         </Container>
     );
 }
-
 
 export default PlaylistsPage;

@@ -16,22 +16,13 @@ export function PlaylistStubComponent() {
             <ContainerVertical>
                 <div className={b('flex-box')}>
                     <div className={b('flex-item')}>
-                        <Header title="My playlists"/>
+                        <Header title="My playlists" />
                     </div>
                     <div className={b('flex-item')}>
-                        <Bar
-                            disabled={true}
-                            value={''}
-                            active={false}
-                            onClick={() => {}}
-                            onChange={() => {}} />
+                        <Bar disabled={true} value={''} active={false} onClick={() => {}} onChange={() => {}} />
                     </div>
                     <div className={b('flex-item')}>
-                        <Body
-                            items={[]}
-                            factor={3}
-                            mock={true}
-                            onClick={() => {}}/>
+                        <Body items={[]} factor={3} mock={true} onClick={() => {}} />
                     </div>
                 </div>
             </ContainerVertical>

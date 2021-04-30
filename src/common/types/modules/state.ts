@@ -1,4 +1,3 @@
-
 declare module 'RootState' {
     import { RouterState } from 'connected-react-router';
     import { HomepageState } from 'common/store/ducks/homepage/reducer';
@@ -15,6 +14,6 @@ declare module 'RootState' {
         readonly playlists: PlaylistsState;
         readonly musiclover: MusicloverState;
         readonly playground: PlaygroundState;
-        readonly authentication: AuthenticationState
-    }
+        readonly authentication: AuthenticationState;
+    };
 }

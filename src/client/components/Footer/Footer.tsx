@@ -6,8 +6,8 @@ import './Footer.css';
 const b = bem.with('footer');
 
 type FooterProps = {
-    display: boolean
-}
+    display: boolean;
+};
 
 export function Footer({ display }: FooterProps) {
     const currentYear = new Date().getFullYear();
@@ -20,5 +20,5 @@ export function Footer({ display }: FooterProps) {
 }
 
 Footer.defaultProps = {
-    display: true
-}
+    display: true,
+};

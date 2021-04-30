@@ -18,10 +18,10 @@ export function FormComponent({ value, switching, onSubmit, onChange }: FormProp
     return (
         <React.Fragment>
             <div className={b('flex-box')}>
-                <div className={b("flex-item")}>
+                <div className={b('flex-item')}>
                     <input className={b('input')} value={value} placeholder={'Pass e-mail...'} onChange={e => onChange(e.target.value)} />
                 </div>
-                <div className={b("flex-item")}>
+                <div className={b('flex-item')}>
                     <button className={b('button')} onClick={onSubmit}>
                         {switching ? "Let's go!" : 'Register me!'}
                     </button>

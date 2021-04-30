@@ -5,27 +5,18 @@ import loadable from '@loadable/component';
 
 import './Navbar.css';
 
-import {
-    HeaderAuthorizedMenu,
-    HeaderNonAuthorizedMenu,
-} from './Navbar.menu';
+import { HeaderAuthorizedMenu, HeaderNonAuthorizedMenu } from './Navbar.menu';
 
-const preloadPage = (pageName: string) =>
-    loadable(() => import(`../../pages/${pageName}/${pageName}`));
+const preloadPage = (pageName: string) => loadable(() => import(`../../pages/${pageName}/${pageName}`));
 
 const b = bem.with('navbar');
 
 type HeaderProps = {
-    type?:
-        | 'authorized'
-        | 'non-authorized';
+    type?: 'authorized' | 'non-authorized';
 };
 
-
 function Navbar({ type }: HeaderProps) {
-    const Menu = type === 'non-authorized'
-        ? HeaderNonAuthorizedMenu
-        : HeaderAuthorizedMenu;
+    const Menu = type === 'non-authorized' ? HeaderNonAuthorizedMenu : HeaderAuthorizedMenu;
 
     return (
         <div className={b('container')}>
@@ -34,20 +25,20 @@ function Navbar({ type }: HeaderProps) {
                     <nav className={b('grid-box', { type })}>
                         {Menu.map((data, id: number) => (
                             <div key={id} className={b('grid-item')}>
-                                {data.complex
-                                    ?  <NavLink
+                                {data.complex ? (
+                                    <NavLink
                                         key={id}
                                         exact={data.exact}
-                                        to={data.query
-                                            ? `${data.to}?${data.query}`
-                                            : data.to}
+                                        to={data.query ? `${data.to}?${data.query}` : data.to}
                                         activeClassName={null}
                                         className={data.styles}
                                         onMouseMove={() => preloadPage(data.path).preload()}
                                     >
                                         {data.child}
                                     </NavLink>
-                                : data.child}
+                                ) : (
+                                    data.child
+                                )}
                             </div>
                         ))}
                     </nav>

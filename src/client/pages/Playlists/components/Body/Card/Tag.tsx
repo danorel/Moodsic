@@ -16,21 +16,18 @@ export function Tag({ title, onClick }: CardTag) {
     return (
         <React.Fragment>
             <button className={b('tag-button')} onClick={() => onClick(title)}>
-                <span className={b('tag-span')}>
-                    {title}
-                </span>
+                <span className={b('tag-span')}>{title}</span>
             </button>
         </React.Fragment>
-    )
+    );
 }
-
 
 export function TagMock() {
     return (
         <React.Fragment>
             <button className={b('tag-button')}>
-                <span className={b('tag-span')}/>
+                <span className={b('tag-span')} />
             </button>
         </React.Fragment>
-    )
+    );
 }

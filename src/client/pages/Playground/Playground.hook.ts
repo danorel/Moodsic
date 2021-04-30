@@ -31,25 +31,13 @@ export function usePlayground() {
     const isLoading = useSelector(isLoadingSelector);
     const isComplete = useSelector(isCompleteSelector);
 
-    const fetchItem = React.useCallback(
-        (item: (PlaygroundAim | PlaygroundMood)) => dispatch(fetchItemRequestCreator(item)),
-        [dispatch]
-    )
+    const fetchItem = React.useCallback((item: PlaygroundAim | PlaygroundMood) => dispatch(fetchItemRequestCreator(item)), [dispatch]);
 
-    const fetchTitle = React.useCallback(
-        (title: string) => dispatch(fetchTitleRequestCreator(title)),
-        [dispatch]
-    )
+    const fetchTitle = React.useCallback((title: string) => dispatch(fetchTitleRequestCreator(title)), [dispatch]);
 
-    const fetchConfig = React.useCallback(
-        () => dispatch(fetchConfigRequestCreator()),
-        [dispatch]
-    );
+    const fetchConfig = React.useCallback(() => dispatch(fetchConfigRequestCreator()), [dispatch]);
 
-    const fetchSubmission = React.useCallback(
-        () => dispatch(fetchSubmissionRequestCreator()),
-        [dispatch]
-    );
+    const fetchSubmission = React.useCallback(() => dispatch(fetchSubmissionRequestCreator()), [dispatch]);
 
     return {
         step,

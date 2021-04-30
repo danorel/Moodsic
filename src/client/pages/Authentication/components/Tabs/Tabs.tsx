@@ -9,7 +9,7 @@ const b = bem.with('authentication-tabs');
 
 type TabDividerProps = {
     active: boolean;
-}
+};
 
 function TabDivider({ active }: TabDividerProps) {
     return active ? <div className={b('tab-divider')} /> : null;
@@ -50,20 +50,10 @@ export function TabsComponent(props: TabsProps) {
             <div className={b('tab')}>
                 <div className={b('flex-box')}>
                     <div className={b('flex-item')}>
-                        <TabComponent
-                            name={'Sign in'}
-                            action={true}
-                            className={b('tab-item')}
-                            active={props.switching}
-                            onChange={props.onChange} />
+                        <TabComponent name={'Sign in'} action={true} className={b('tab-item')} active={props.switching} onChange={props.onChange} />
                     </div>
                     <div className={b('flex-item')}>
-                        <TabComponent
-                            name={'Sign up'}
-                            action={false}
-                            active={!props.switching}
-                            className={b('tab-item')}
-                            onChange={props.onChange} />
+                        <TabComponent name={'Sign up'} action={false} active={!props.switching} className={b('tab-item')} onChange={props.onChange} />
                     </div>
                 </div>
             </div>

@@ -18,10 +18,6 @@ export const serializer = (data: any): Playlist[] => {
 };
 
 // Emulate api request
-export const fetchPlaylists = (musicloverId: MusicloverId) =>
-    timeout(1500)
-        .then(() => serializer({ ...playlistsMock, musicloverId }));
+export const fetchPlaylists = (musicloverId: MusicloverId) => timeout(1500).then(() => serializer({ ...playlistsMock, musicloverId }));
 
-export const fetchPlaylistsByQuery = (musicloverId: MusicloverId, query: string) =>
-    timeout(500)
-        .then(() => serializer({ ...queryMock, query, musicloverId }));
+export const fetchPlaylistsByQuery = (musicloverId: MusicloverId, query: string) => timeout(500).then(() => serializer({ ...queryMock, query, musicloverId }));

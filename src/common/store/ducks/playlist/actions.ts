@@ -6,9 +6,7 @@ export function fetchPlaylistRequest(id: PlaylistId): types.FetchPlaylistRequest
     return { type: types.FETCH_PLAYLIST_REQUEST, payload: id };
 }
 
-export function fetchPlaylistSuccess(
-    data: Playlist
-): types.FetchPlaylistSuccessAction {
+export function fetchPlaylistSuccess(data: Playlist): types.FetchPlaylistSuccessAction {
     return { type: types.FETCH_PLAYLIST_SUCCESS, payload: data };
 }
 

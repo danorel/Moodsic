@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as bem from 'b_';
-import { useHistory } from "react-router-dom";
-import queryString from "query-string";
+import { useHistory } from 'react-router-dom';
+import queryString from 'query-string';
 
 import { AuthenticationStub } from './Authentication.stub';
 import { useAuthentication } from './Authentication.hook';
@@ -12,42 +12,27 @@ import { TitleComponent } from './components/Title/Title';
 
 import './Authentication.css';
 
-import {
-    Container,
-    ContainerVertical,
-} from 'client/components';
+import { Container, ContainerVertical } from 'client/components';
 
 const b = bem.with('authentication-page');
-
 
 export default function Authentication() {
     const history = useHistory();
     const params = queryString.parse(history.location.search);
 
-    const {
-        email,
-        switching,
-        isLoading,
-        isAuthenticated,
-        onChangeEmail,
-        onChangeSwitching,
-        fetchSubmission,
-        fetchAuthentication,
-    } = useAuthentication();
+    const { email, switching, isLoading, isAuthenticated, onChangeEmail, onChangeSwitching, fetchSubmission, fetchAuthentication } = useAuthentication();
 
     React.useEffect(() => {
-        if (params.switching)
-            onChangeSwitching(params.switching === String(true));
+        if (params.switching) onChangeSwitching(params.switching === String(true));
 
         fetchAuthentication();
     }, []);
 
     React.useEffect(() => {
-        if (isAuthenticated)
-            history.push("/musiclover/1/playground");
-    }, [isAuthenticated])
+        if (isAuthenticated) history.push('/musiclover/1/playground');
+    }, [isAuthenticated]);
 
-    if (isLoading) return <AuthenticationStub/>;
+    if (isLoading) return <AuthenticationStub />;
 
     return (
         <React.Fragment>
@@ -64,11 +49,7 @@ export default function Authentication() {
                                         <TitleComponent switching={switching} />
                                     </div>
                                     <div className={b('flex-item-form')}>
-                                        <FormComponent
-                                            value={email}
-                                            switching={switching}
-                                            onSubmit={fetchSubmission}
-                                            onChange={onChangeEmail} />
+                                        <FormComponent value={email} switching={switching} onSubmit={fetchSubmission} onChange={onChangeEmail} />
                                     </div>
                                 </div>
                             </div>

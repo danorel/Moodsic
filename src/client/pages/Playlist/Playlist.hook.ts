@@ -2,10 +2,7 @@ import * as React from 'react';
 import { useRouteMatch } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-    getPlaylist,
-    isLoading as isLoadingSelector,
-} from 'common/store/ducks/playlist/selectors';
+import { getPlaylist, isLoading as isLoadingSelector } from 'common/store/ducks/playlist/selectors';
 
 import { fetchPlaylistRequest as fetchPlaylistActionCreator } from 'common/store/ducks/playlist/actions';
 
@@ -17,22 +14,16 @@ export function usePlaylist() {
     const dispatch = useDispatch();
 
     const match = useRouteMatch<{
-        playlistId: PlaylistId,
-        musicloverId: MusicloverId
+        playlistId: PlaylistId;
+        musicloverId: MusicloverId;
     }>();
 
     const data = useSelector(getPlaylist);
     const isLoading = useSelector(isLoadingSelector);
 
-    const fetchPlaylist = React.useCallback(
-        (playlistId: PlaylistId) => dispatch(fetchPlaylistActionCreator(playlistId)),
-        [dispatch]
-    );
+    const fetchPlaylist = React.useCallback((playlistId: PlaylistId) => dispatch(fetchPlaylistActionCreator(playlistId)), [dispatch]);
 
-    const fetchMusiclover = React.useCallback(
-        () => dispatch(fetchMusicloverActionCreator()),
-        [dispatch]
-    );
+    const fetchMusiclover = React.useCallback(() => dispatch(fetchMusicloverActionCreator()), [dispatch]);
 
     return {
         match,

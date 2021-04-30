@@ -42,9 +42,7 @@ export default (req: Request, res: Response) => {
             return;
         }
 
-        res.status(context.statusCode || 200).send(
-            getHtml(reactHtml, reduxState, helmetData, chunkExtractor)
-        );
+        res.status(context.statusCode || 200).send(getHtml(reactHtml, reduxState, helmetData, chunkExtractor));
     }
 
     store
@@ -67,10 +65,7 @@ export default (req: Request, res: Response) => {
     routes.some(route => {
         const { fetchData: fetchMethod } = route;
 
-        const match = matchPath<{ musicloverId: MusicloverId }>(
-            url.parse(location).pathname,
-            route
-        );
+        const match = matchPath<{ musicloverId: MusicloverId }>(url.parse(location).pathname, route);
 
         if (match && fetchMethod) {
             dataRequirements.push(
@@ -93,12 +88,7 @@ export default (req: Request, res: Response) => {
         });
 };
 
-function getHtml(
-    reactHtml: string,
-    reduxState = {},
-    helmetData: HelmetData,
-    chunkExtractor: ChunkExtractor
-) {
+function getHtml(reactHtml: string, reduxState = {}, helmetData: HelmetData, chunkExtractor: ChunkExtractor) {
     const scriptTags = chunkExtractor.getScriptTags();
     const linkTags = chunkExtractor.getLinkTags();
     const styleTags = chunkExtractor.getStyleTags();

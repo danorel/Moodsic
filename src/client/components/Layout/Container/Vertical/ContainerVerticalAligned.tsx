@@ -5,8 +5,7 @@ import './ContainerVerticalAligned.css';
 
 type Props = {
     children: React.ReactNode;
-    type?:
-        | 'default';
+    type?: 'default';
     className?: string;
 };
 
