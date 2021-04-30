@@ -1,6 +1,7 @@
 @import '../../styles/base.css';
 
 .app {
+    overflow: auto;
     width: 100%;
     height: 100%;
     color: #000;
@@ -24,12 +25,12 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 17.5% auto 17.5%;
+    grid-template-rows: 17.5vh auto 17.5vh;
     grid-template-columns: auto;
     grid-auto-rows: auto;
 
     &_authenticated {
-        grid-template-rows: 17.5% auto;
+        grid-template-rows: 17.5vh auto;
     }
 }
 

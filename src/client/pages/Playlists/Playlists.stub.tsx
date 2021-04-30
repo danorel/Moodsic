@@ -16,7 +16,7 @@ export function PlaylistStubComponent() {
             <ContainerVertical>
                 <div className={b('flex-box')}>
                     <div className={b('flex-item')}>
-                        <Header title="How do you feel today?"/>
+                        <Header title="My playlists"/>
                     </div>
                     <div className={b('flex-item')}>
                         <Bar
