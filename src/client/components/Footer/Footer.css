@@ -4,6 +4,10 @@
     height: 10vmin;
     bottom: 0;
     text-align: center;
+
+    &_display {
+        display: none;
+    }
 }
 
 .footer__p {

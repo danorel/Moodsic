@@ -13,7 +13,7 @@
 
     &_disabled {
         pointer-events: none;
-        background: #97bead;
+        background: #81cdef;
     }
 
     &:active {

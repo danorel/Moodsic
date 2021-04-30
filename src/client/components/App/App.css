@@ -8,4 +8,40 @@
     display: flex;
     flex-direction: column;
     flex: 1 1;
+
+    &_type {
+        &_default {
+            background: linear-gradient(180deg, #fff 0%, #fff 20.31%, rgba(255, 255, 255, 0) 100%), #d1f7ff;
+        }
+
+        &_black {
+            background: linear-gradient(180deg, #fff 0%, #fff 20.31%, rgba(255, 255, 255, 0) 100%), #130303;
+        }
+    }
+}
+
+.app__grid-box {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 17.5% auto 17.5%;
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+
+    &_authenticated {
+        grid-template-rows: 17.5% auto;
+    }
+}
+
+.app__grid-item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.app__grid-item:last-child {
+    &_authenticated {
+        display: none;
+    }
 }

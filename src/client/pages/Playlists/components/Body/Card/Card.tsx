@@ -29,8 +29,8 @@ function Card(props: CardProps) {
         <React.Fragment>
             <div className={b('container')}>
                 <div className={b('grid-box')}>
-                    {Items(props).map((item: CardItem) => (
-                        <div className={b('grid-item')}>
+                    {Items(props).map((item: CardItem, index: number) => (
+                        <div key={index} className={b('grid-item')}>
                             {item.children}
                         </div>
                     ))}

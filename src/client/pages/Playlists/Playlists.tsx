@@ -54,6 +54,7 @@ function PlaylistsPage() {
                     </div>
                     <div className={b('flex-item')}>
                         <Body
+                            mock={false}
                             items={active
                                 ? playlistsSorted
                                 : playlists}

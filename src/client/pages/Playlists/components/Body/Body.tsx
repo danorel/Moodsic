@@ -25,10 +25,10 @@ function Body<T extends Playlist>({ items, factor, onClick, mock }: BodyProps<T>
             {collector(chunker(mock
                 ? new Array(6).fill(null).map((_, i: number) => ({ id: String(i) } as Playlist))
                 : items, factor), factor)
-                .map((chunk: T[]) => (
-                    <div className={b('row')}>
-                        {chunk.map((item: T) => (
-                            <div className={b('column')}>
+                .map((chunk: T[], outer: number) => (
+                    <div key={outer} className={b('row')}>
+                        {chunk.map((item: T, inner: number) => (
+                            <div key={inner} className={b('column')}>
                                 {!item
                                     ? null
                                     : <ItemCard {...item} mock={mock} factor={2} onClick={onClick}/>}
@@ -42,7 +42,7 @@ function Body<T extends Playlist>({ items, factor, onClick, mock }: BodyProps<T>
 }
 
 Body.defaultProps = {
-    mock: false,
+    mock: true,
     factor: 3
 }
 
