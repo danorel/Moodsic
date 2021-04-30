@@ -8,7 +8,7 @@ import { collector } from '../utils/Collector';
 
 import './Body.css';
 
-import { Card as PlaylistCard } from './Card/Card';
+import { Card as ItemCard } from './Card/Card';
 
 const b = bem.with('playlists-body');
 
@@ -17,23 +17,21 @@ type BodyProps<T> = {
     factor?: number;
     onClick: (query: string) => void;
     mock?: boolean;
-    mockLength?: number;
 }
 
-function Body<T extends Playlist>({ items, factor, onClick, mock, mockLength }: BodyProps<T>) {
-    if (mock)
-        items = new Array(mockLength).map(e => null);
-
+function Body<T extends Playlist>({ items, factor, onClick, mock }: BodyProps<T>) {
     return (
         <React.Fragment>
-            {collector<T>(chunker<T>(items, factor), factor)
+            {collector(chunker(mock
+                ? new Array(6).fill(null).map((_, i: number) => ({ id: String(i) } as Playlist))
+                : items, factor), factor)
                 .map((chunk: T[]) => (
                     <div className={b('row')}>
-                        {chunk.map((playlist: T) => (
+                        {chunk.map((item: T) => (
                             <div className={b('column')}>
-                                {!playlist
+                                {!item
                                     ? null
-                                    : <PlaylistCard {...playlist} mock={mock} factor={2} onClick={onClick}/>}
+                                    : <ItemCard {...item} mock={mock} factor={2} onClick={onClick}/>}
                             </div>
                         ))}
                     </div>

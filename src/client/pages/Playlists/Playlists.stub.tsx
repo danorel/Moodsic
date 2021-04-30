@@ -31,7 +31,6 @@ export function PlaylistStubComponent() {
                             items={[]}
                             factor={3}
                             mock={true}
-                            mockLength={6}
                             onClick={() => {}}/>
                     </div>
                 </div>
