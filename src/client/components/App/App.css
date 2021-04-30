@@ -38,10 +38,14 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    &_authenticated {
+        display: none !important;
+    }
 }
 
 .app__grid-item:last-child {
     &_authenticated {
-        display: none;
+        display: none !important;
     }
 }

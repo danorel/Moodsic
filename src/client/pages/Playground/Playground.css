@@ -8,7 +8,9 @@
 
 .playground-page__flex-item {
     width: 100%;
-    margin: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .playground-page__container-layout {
