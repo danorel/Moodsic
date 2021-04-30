@@ -24,4 +24,4 @@ app.get('/authentication', (req: Request, res: Response, next: NextFunction) => 
     return res.status(200).send({ isAuthorized: true });
 });
 
-module.exports = app;
+export default app;

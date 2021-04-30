@@ -4,7 +4,7 @@ import passport from 'passport';
 
 import * as SessionType from './types';
 
-export default (app: Application) => {
+const initSession = (app: Application) => {
     app.use(
         session({
             secret: 'keyboard cat',
@@ -16,3 +16,5 @@ export default (app: Application) => {
     app.use(passport.initialize());
     app.use(passport.session());
 };
+
+export { initSession };
