@@ -4,7 +4,7 @@ import express from 'express';
 import compression from 'compression';
 import bodyParser from 'body-parser';
 
-import serverApi from './api';
+import serverApi from './src/api';
 import serverMiddleware from './middleware';
 
 const app = express();
